@@ -1,8 +1,8 @@
 # turma51487
-**Repositório - Turma 51487 - Senai Cimatec CAI TEC Informática (Desenvolvimento de Software);
+**Repositório - Turma 51487 - Senai Cimatec CAI TEC Informática (Desenvolvimento de Software);**
 
 ## REGRAS:
-**1.NÃO APAGUE O CONTEUDO...
+**1.NÃO APAGUE O CONTEUDO...**
 **2.NÃO EDITE O CONTEUDO DO COLEGUINHA, CASO QUEIRA MELHORAR CRIE SEU PROPRIO ARQUIVO SEGUINDO AS ESPECIFICAÇÕES ABAIXO:
 
    # CRIAÇÃO DE ARQUIVOS
