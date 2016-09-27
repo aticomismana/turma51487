@@ -1,5 +1,5 @@
-Matéria de Lógica de Programação
-Professor Tiago Menegaz
+Matéria de Programação de Aplicativos
+Professora Franscisleide
 
 horas: 140;
 Q.presença: 105;
