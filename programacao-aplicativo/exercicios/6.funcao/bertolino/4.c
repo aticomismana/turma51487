@@ -22,7 +22,7 @@ int calcula_raiz( float a , float b , float c){
         printf( "As raízes são: %.2f e %.2f\n" , ( -b + DELTA ) / 2*a , ( -b - DELTA ) / 2*a );
     }else{
         printf( "As raízes são: %.2f + i%.2f e %.2f -i%.2f\n" ,
-        -b/2*a , -DELTA/2*a , -b/2*a , DELTA/2*a );
+        -b/2*a , DELTA/2*a , -b/2*a , DELTA/2*a );
     }
     return 1;
 }
