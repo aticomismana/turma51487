@@ -1,4 +1,5 @@
-Kanbam:
+Problema 1 - Kanbam:
+--
  Função para cadastrar atividades em um vetor;
 a.       Atividades terá um vetor auxiliar para colocar o status da atividade, sempre que cadastrar uma nova, terá o status “TODO” (a fazer)
 b.      Cadastrar até que digite “0”
@@ -11,7 +12,8 @@ a.       Mostrar a quantidade de atividades feitas, a fazer e fazendo no sistema
 b.   Horas totais gastas;
 
  
-Aluguel de carros
+Problema 2 - Aluguel de carros:
+--
  Função para cadastrar modelo carros
 a.       Cadastrar vários modelos de carro que ficarão disponíveis na locadora até que o usuário pare com “0”
 b.      Todos os carros terão status inicial de “Disponível”
@@ -21,7 +23,8 @@ a.       Trocar o status do carro para “Alugado”
 4-      Relatório
 a.       Número de carros alugados e disponíveis que consta no sistema
 
-Renda mensal
+Problema 3 - Renda mensal:
+--
 Total de renda mensal (entrada)
 1-      Cadastro de despesas fixas no mês (vetor)
 2-      Pagar contas
