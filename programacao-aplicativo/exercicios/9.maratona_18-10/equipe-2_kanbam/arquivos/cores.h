@@ -3,6 +3,8 @@
  *	determinadas pelo padrão ANSI para serem
  *	escapadas pelo terminal através do print.
  *
+ *	Equipe: Ícaro, Thiago, Bertolino
+ *
  */
 
 #if defined( linux ) || defined( _terminal_ansi_ )
