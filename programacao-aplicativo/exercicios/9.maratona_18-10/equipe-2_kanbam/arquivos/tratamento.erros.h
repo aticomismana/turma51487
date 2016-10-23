@@ -4,6 +4,8 @@
  *	Arquivo com a finalidade de separar as frases
  *	de erro do arquivo principal.
  *
+ *	Equipe: Ícaro, Thiago, Bertolino
+ *
  */
 
 

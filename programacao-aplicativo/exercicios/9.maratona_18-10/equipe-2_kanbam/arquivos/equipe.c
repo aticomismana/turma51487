@@ -12,6 +12,8 @@
  *	da chamada do executável o nome a ser utilizado
  *	pelo software. Vale ressaltar que esse nome não 
  *	deve possuir extensão. 
+ *	
+ *	Equipe: Ícaro, Thiago, Bertolino
  *
  */
 
