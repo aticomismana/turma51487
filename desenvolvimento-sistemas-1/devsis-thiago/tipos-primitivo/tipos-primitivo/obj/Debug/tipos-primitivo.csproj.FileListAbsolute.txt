@@ -4,3 +4,9 @@ C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-
 C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-thiago\tipos-primitivo\tipos-primitivo\obj\Debug\tipos-primitivo.csprojResolveAssemblyReference.cache
 C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-thiago\tipos-primitivo\tipos-primitivo\obj\Debug\tipos-primitivo.exe
 C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-thiago\tipos-primitivo\tipos-primitivo\obj\Debug\tipos-primitivo.pdb
+C:\Users\aluno\Pictures\tipos-primitivo\tipos-primitivo\bin\Debug\tipos-primitivo.exe.config
+C:\Users\aluno\Pictures\tipos-primitivo\tipos-primitivo\obj\Debug\tipos-primitivo.exe
+C:\Users\aluno\Pictures\tipos-primitivo\tipos-primitivo\obj\Debug\tipos-primitivo.pdb
+C:\Users\aluno\Pictures\tipos-primitivo\tipos-primitivo\bin\Debug\tipos-primitivo.exe
+C:\Users\aluno\Pictures\tipos-primitivo\tipos-primitivo\bin\Debug\tipos-primitivo.pdb
+C:\Users\aluno\Pictures\tipos-primitivo\tipos-primitivo\obj\Debug\tipos-primitivo.csprojResolveAssemblyReference.cache

@@ -41,8 +41,53 @@ namespace tipos_primitivo{
                 string productName = "LG";
                 double productPrice = 279.99f;
                 int productYear = 2012;
-                Console.WriteLine("TV {0} preço do produto: R$ {1}  ano do produto {2}", productName, productPrice,productYear);
+                Console.WriteLine("TV {0} preço do produto: R$ {1} ano do produto {2}", productName, productPrice,productYear);
             //FIM DO EXERCICIO DE REPASSE
+
+            //Declarando e atribuindo valores vetor unidimensional
+            int[] vet = { 0, 2, 1, 5, 1, 4, 4, 1, 4, 10 };
+
+            //Declarando o tamanho do vetor
+            int[] arr = new int[10];
+
+            // Imprimindo o valor na posicao 4 ou seja o valor: 1
+            Console.WriteLine(vet[4]);
+
+            // Matriz
+            int[,] matriz = new int[5, 5];
+
+            //Atribuindo valores a matriz
+            matriz[0, 1] = 1;
+            matriz[0, 2] = 10;
+
+            // Criando Listas
+            List<string> frutas = new List<string>();
+            List<int> sorteio = new List<int>();
+            //Adicionando elementos
+            frutas.Add("pera");
+            frutas.Add("pera");
+            frutas.Add("Maçã");
+            frutas.Add("Banana");
+            sorteio.Add(1);
+            sorteio.Add(2);
+            sorteio.Add(3);
+            sorteio.Add(4);
+
+            //Remover valor
+            frutas.Remove("pera");
+
+            //Imprimindo o valor pelo indice
+            Console.WriteLine(sorteio[0]);
+
+            //Estrutura de repetição forEach
+            //Imprimindo todos os valores da lista fruta
+            foreach (string fruta in frutas){
+                Console.WriteLine(fruta);
+            }
+
+            for(int i=0; i <= frutas.Count; i++){
+                Console.WriteLine(sorteio[i]);
+            }
 
             // Faz com que o programa só encerre com a tecla enter
             Console.ReadLine();
