@@ -1,0 +1,9 @@
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\bin\Debug\Condicionais.exe.config
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\bin\Debug\Condicionais.exe
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\bin\Debug\Condicionais.pdb
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\obj\Debug\Condicionais.csprojResolveAssemblyReference.cache
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\obj\Debug\Condicionais.Form1.resources
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\obj\Debug\Condicionais.Properties.Resources.resources
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\obj\Debug\Condicionais.csproj.GenerateResource.Cache
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\obj\Debug\Condicionais.exe
+C:\Users\aluno\Documents\Workspace\Condicionais\Condicionais\obj\Debug\Condicionais.pdb
