@@ -1,0 +1,6 @@
+C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-diego\tipos-primitivos\tipos-primitivos\bin\Debug\tipos-primitivos.exe.config
+C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-diego\tipos-primitivos\tipos-primitivos\bin\Debug\tipos-primitivos.exe
+C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-diego\tipos-primitivos\tipos-primitivos\bin\Debug\tipos-primitivos.pdb
+C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-diego\tipos-primitivos\tipos-primitivos\obj\Debug\tipos-primitivos.csprojResolveAssemblyReference.cache
+C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-diego\tipos-primitivos\tipos-primitivos\obj\Debug\tipos-primitivos.exe
+C:\Users\aluno\Documents\Workspace\turma51487\desenvolvimento-sistemas-1\devsis-diego\tipos-primitivos\tipos-primitivos\obj\Debug\tipos-primitivos.pdb
