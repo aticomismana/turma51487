@@ -4,7 +4,7 @@
 
 ###Carga horária: 100h;
 
-1.  download do git; 
+1. download do git; 
 
     1.1. google "git download"; 
     1.2. Acessar site para download;
