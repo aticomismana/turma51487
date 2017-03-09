@@ -1,8 +1,8 @@
-﻿Curso técnico senai;
+﻿#Curso técnico senai;
 
-Informática Desenvolvimento de sistemas I;
+##Informática Desenvolvimento de sistemas I;
 
-Carga horária: 100h;
+###Carga horária: 100h;
 
 1.  download do git; 
 
