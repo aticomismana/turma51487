@@ -1,9 +1,0 @@
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\bin\Debug\SimpleTeste.exe.config
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\bin\Debug\SimpleTeste.exe
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\bin\Debug\SimpleTeste.pdb
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\obj\Debug\SimpleTeste.csprojResolveAssemblyReference.cache
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\obj\Debug\SimpleTeste.Form1.resources
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\obj\Debug\SimpleTeste.Properties.Resources.resources
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\obj\Debug\SimpleTeste.csproj.GenerateResource.Cache
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\obj\Debug\SimpleTeste.exe
-C:\Users\aluno\Documents\Workspace\SimpleTeste\SimpleTeste\obj\Debug\SimpleTeste.pdb
