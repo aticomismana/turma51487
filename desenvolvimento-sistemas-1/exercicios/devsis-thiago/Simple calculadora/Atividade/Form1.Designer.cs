@@ -40,6 +40,7 @@
             this.check_op2 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_num1
@@ -159,12 +160,23 @@
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 10;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(76, 303);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "By Thiago Nogueira";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Atividade.Properties.Resources.Desert;
-            this.ClientSize = new System.Drawing.Size(284, 304);
+            this.ClientSize = new System.Drawing.Size(284, 322);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.check_op2);
@@ -197,6 +209,7 @@
         private System.Windows.Forms.RadioButton check_op2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
