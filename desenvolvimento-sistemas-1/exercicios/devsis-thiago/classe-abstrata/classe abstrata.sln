@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "classes abstratas", "abstratadas\classes abstratas.csproj", "{AADEE9CE-212D-435C-B3FD-C01806812942}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AADEE9CE-212D-435C-B3FD-C01806812942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AADEE9CE-212D-435C-B3FD-C01806812942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AADEE9CE-212D-435C-B3FD-C01806812942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AADEE9CE-212D-435C-B3FD-C01806812942}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
