@@ -1,5 +1,5 @@
-Matéria de Programação de Aplicativos  
-Professora Franscisleide  
+Matéria - Desenvolvimento de Sistemas 1
+Professora Franscisleide   
 
 horas: 180;  
 Q.presença: 135;  
