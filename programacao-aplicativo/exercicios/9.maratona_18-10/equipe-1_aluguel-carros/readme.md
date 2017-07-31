@@ -1,1 +1,0 @@
-Membros: Isabel, Gabriel, Nayrã.

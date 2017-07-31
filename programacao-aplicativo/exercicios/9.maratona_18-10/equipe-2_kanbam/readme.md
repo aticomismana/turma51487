@@ -1,1 +1,0 @@
-Membros: Bertolino, Ícaro, Tiago.

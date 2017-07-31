@@ -1,1 +1,0 @@
-Membros: Hudson, Tales, David.
