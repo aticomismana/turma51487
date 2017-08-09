@@ -18,9 +18,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String dataDeNascimento = JOptionPane.showInputDialog(null, args, "Informe a data de nascimento");
         String nome = JOptionPane.showInputDialog(null, args, "Informe o nome");
         String sobrenome = JOptionPane.showInputDialog(null, args, "Informe o sobrenome");
+        String dataDeNascimento = JOptionPane.showInputDialog(null, args, "Informe a data de nascimento");
 
 
         Date dataNascimento = new Date(dataDeNascimento);
@@ -31,12 +31,12 @@ public class Main {
         double intervaloMin = heartRate.calculaIntervaloMin(frequenciaMin);
         double intervaloMax = heartRate.calculaIntervaloMin(frequenciaMax);
 
-        
+        JOptionPane.showMessageDialog(null, "Nome: " + nome + " " + sobrenome);
         JOptionPane.showMessageDialog(null, "Frequqencia maxima: " + frequenciaMax);
         JOptionPane.showMessageDialog(null, "Frequencia minima:" + frequenciaMin);
-        JOptionPane.showMessageDialog(null, "Idade: " + idade);
-        JOptionPane.showMessageDialog(null, "Intervalor minimo: " + intervaloMin);
-        JOptionPane.showMessageDialog(null, "Intervalor maximo: " + intervaloMax);
+        JOptionPane.showMessageDialog(null, "Idade: " + idade + " anos");
+        JOptionPane.showMessageDialog(null, "Intervalo minimo: " + intervaloMin);
+        JOptionPane.showMessageDialog(null, "Intervalo maximo: " + intervaloMax);
 
     }
     
