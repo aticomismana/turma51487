@@ -5,10 +5,10 @@
 Criar uma classe com o nome Carro com:  
 
 Os atributos:  
-		- String cor;  
-		- String modelo;  
-		- double velocidadeAtual;  
-		- double velocidadeMaxima;  
+- String cor;  
+- String modelo;  
+- double velocidadeAtual;  
+- double velocidadeMaxima;  
 
 E os métodos:  
 - void liga(): que exibirá uma mensagem "Carro ligado";  
