@@ -32,11 +32,12 @@ public class Main {
         double intervaloMax = heartRate.calculaIntervaloMin(frequenciaMax);
 
         
-        System.out.println("Frequqencia maxima: " + frequenciaMax);
-        System.out.println("Frequencia minima:" + frequenciaMin);
-        System.out.println("Idade: " + idade);
-        System.out.println("Intervalor minimo: " + intervaloMin);
-        System.out.println("Intervalor maximo: " + intervaloMax);
+        JOptionPane.showMessageDialog(null, "Frequqencia maxima: " + frequenciaMax);
+        JOptionPane.showMessageDialog(null, "Frequencia minima:" + frequenciaMin);
+        JOptionPane.showMessageDialog(null, "Idade: " + idade);
+        JOptionPane.showMessageDialog(null, "Intervalor minimo: " + intervaloMin);
+        JOptionPane.showMessageDialog(null, "Intervalor maximo: " + intervaloMax);
+
     }
     
 }
