@@ -1,3 +1,0 @@
-﻿# Atividade - Herança
-
-...
