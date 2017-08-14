@@ -1,4 +1,4 @@
-# Atividade  - Encapsulamento e Construtores  
+# Atividade  - Herança  
 
 ## Questão 1:  
 
