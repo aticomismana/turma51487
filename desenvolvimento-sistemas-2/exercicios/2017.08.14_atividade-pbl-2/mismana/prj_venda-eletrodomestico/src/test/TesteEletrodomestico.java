@@ -47,7 +47,7 @@ public class TesteEletrodomestico {
             case 2:
                 // liquidificador
                 qtdHelices = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade"
-                        + "de hélices: "));
+                        + " de hélices: "));
                 String tampaCor = JOptionPane.showInputDialog("Informe a cor da tampa: ");
                 String tampaDescricao = JOptionPane.showInputDialog("Informe a descrição da tampa: ");
                 
@@ -64,10 +64,10 @@ public class TesteEletrodomestico {
     public static void imprimirCupomFiscal(int codMes, Double quantidadeLitros, Double capacidadeLitrosPorSegundo, Eletrodomestico eletro) {
         boolean helicoidal = false;
         
-        System.out.println("\n\nMês da Compra: " + codMes + ".");
+        System.out.println("\n-> Mês da Compra: " + codMes + ".");
         
-        System.out.println("\nEletrodoméstico: ");
-        System.out.println("\n-> Tipo: ");
+        System.out.println("-> Eletrodoméstico: ");
+        System.out.print("Tipo: ");
         if(eletro instanceof Ferro){
             System.out.println("Ferro.");
         } else if (eletro instanceof Batedeira){
@@ -78,13 +78,13 @@ public class TesteEletrodomestico {
             helicoidal = true;
         }
         
-        System.out.println("\nMarca: " + eletro.getMarca() + ".");
-        System.out.println("\nPreço: " + eletro.getPreco() + ".");
-        System.out.println("\nVoltagem: " + eletro.getVoltagem()+ ".");
+        System.out.println("Marca: " + eletro.getMarca() + ".");
+        System.out.println("Preço: R$ " + eletro.getPreco() + ".");
+        System.out.println("Voltagem: " + eletro.getVoltagem()+ ".");
         
         Double desconto = eletro.calcularDesconto(codMes);
-        System.out.println("\n\nDesconto: " + desconto + ".");
-        System.out.println("\nValor final: " + (eletro.getPreco()-desconto) + ".");
+        System.out.println("-> Desconto: R$ " + desconto + ".");
+        System.out.println("-> Valor final: R$ " + (eletro.getPreco()-desconto) + ".");
     
         if(helicoidal){
 
@@ -92,21 +92,21 @@ public class TesteEletrodomestico {
                 Batedeira batedeira = (Batedeira) eletro;
             
                 // qtd helices
-                System.out.println("\nQuantidade de Hélices: " + batedeira.getQtdHelices() + ".");
+                System.out.println("-> Quantidade de Hélices: " + batedeira.getQtdHelices() + ".");
                 // mediaLitros
-                System.out.println("\nQuantidade média de litros que podem ser batidos por segundo: " + batedeira.calcularMediaLitros(quantidadeLitros,capacidadeLitrosPorSegundo) + ".");
+                System.out.println("-> Quantidade média de litros que podem ser batidos por segundo: " + batedeira.calcularMediaLitros(quantidadeLitros,capacidadeLitrosPorSegundo) + ".");
                 
             } else if (eletro instanceof Liquidificador){
                 Liquidificador liquidificador = (Liquidificador) eletro;
                 
                 // qtd helices
-                System.out.println("\nQuantidade de Hélices: " + liquidificador.getQtdHelices() + ".");
+                System.out.println("-> Quantidade de Hélices: " + liquidificador.getQtdHelices() + ".");
                 //tampa
-                System.out.println("\nTampa: ");
-                System.out.println("\n--> Cor: " + liquidificador.getTampa().getCor() + ".");
-                System.out.println("\n--> Descição: " + liquidificador.getTampa().getDescricao() + ".");
+                System.out.println("-> Tampa: ");
+                System.out.println("Cor: " + liquidificador.getTampa().getCor() + ".");
+                System.out.println("Descição: " + liquidificador.getTampa().getDescricao() + ".");
                 // mediaLitros
-                System.out.println("\nQuantidade média de litros que podem ser batidos por segundo: " + liquidificador.calcularMediaLitros(quantidadeLitros, capacidadeLitrosPorSegundo) + ".");
+                System.out.println("-> Quantidade média de litros que podem ser batidos por segundo: " + liquidificador.calcularMediaLitros(quantidadeLitros, capacidadeLitrosPorSegundo) + ".");
             }
         } // fim if
     }

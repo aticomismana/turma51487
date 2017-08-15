@@ -11,7 +11,7 @@ public class Liquidificador extends Helicoidal {
     @Override
     public Double calcularDesconto(int mes){
         if(mes==8) {
-            return super.preco*=0.1;
+            return super.preco*0.1;
         }
         return 0.00;
     }
