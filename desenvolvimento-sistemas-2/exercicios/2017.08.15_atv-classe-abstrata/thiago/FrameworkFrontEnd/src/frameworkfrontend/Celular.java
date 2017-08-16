@@ -15,7 +15,7 @@ public class Celular extends Dispositivo {
     void ajustarTamanho(){
         double tamanho = 0;
         for(Elemento tag : this.tags){
-            tamanho += tag.getTamanho() - 0.30;
+            tamanho = tag.getTamanho() + tag.getTamanho() * 0.30;
             tag.setTamanho(tamanho);
         }
     }
