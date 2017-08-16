@@ -15,7 +15,7 @@ public class Desktop extends Dispositivo {
     void ajustarTamanho(){
         double tamanho = 0;
         for(Elemento tag : this.tags){
-            tamanho += tag.getTamanho() - 1.50;
+            tamanho = tag.getTamanho() + tag.getTamanho() *  1.50;
             tag.setTamanho(tamanho);
         }
     }

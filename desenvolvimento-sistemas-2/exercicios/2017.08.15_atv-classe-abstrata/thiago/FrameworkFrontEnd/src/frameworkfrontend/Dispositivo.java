@@ -17,4 +17,12 @@ public abstract class Dispositivo {
     
     abstract void ajustarTamanho();
     
+    void adicionarTag(Elemento tag){
+       tags.add(tag);
+    }
+    
+    ArrayList visualizarConteudo(){
+        return tags;
+    }
+    
 }

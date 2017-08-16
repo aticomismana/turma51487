@@ -15,7 +15,7 @@ public class Notebook extends Dispositivo {
     void ajustarTamanho(){
         double tamanho = 0;
         for(Elemento tag : this.tags){
-            tamanho += tag.getTamanho() - 1.00;
+            tamanho = tag.getTamanho() + tag.getTamanho() - 1.00;
             tag.setTamanho(tamanho);
         }
     }

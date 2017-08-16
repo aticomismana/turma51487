@@ -15,9 +15,8 @@ public class Tablet extends Dispositivo {
     
     @Override
     void ajustarTamanho(){
-        double tamanho = 0;
         for(Elemento tag : this.tags){
-            tag.setTamanho(tamanho);
+            tag.setTamanho(tag.getTamanho());
         }
     }
 
