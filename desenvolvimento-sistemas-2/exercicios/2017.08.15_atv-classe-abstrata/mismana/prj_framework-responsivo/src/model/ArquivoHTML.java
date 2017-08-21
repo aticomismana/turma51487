@@ -3,20 +3,20 @@ package model;
 import java.util.ArrayList;
 
 public class ArquivoHTML {
-    private final ArrayList<Conteudo> conteudos;
+    private final ArrayList<ItemConteudo> conteudo;
     private String nome;
     
-    public Boolean adicionarConteudo(Conteudo conteudo) {       //TODO alterar diagrama
-        this.conteudos.add(conteudo);
+    public Boolean adicionarConteudo(ItemConteudo conteudo) {       //TODO alterar diagrama
+        this.conteudo.add(conteudo);
         return true;    //TODO o add ja retorna true??
     }
     
-    public ArrayList<Conteudo> getConteudos() {     //TODO alterar diagrama
-        return this.conteudos;
+    public ArrayList<ItemConteudo> getConteudo() {     //TODO alterar diagrama
+        return this.conteudo;
     }
     
     public ArquivoHTML(String nome) {
-        this.conteudos = new ArrayList<>();
+        this.conteudo = new ArrayList<>();
         this.nome = nome;
     }
 

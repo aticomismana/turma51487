@@ -10,8 +10,12 @@ public class TesteDispositivo {
     public static void main(String args[]) {
         criarDispositivos();
         imprimirDispositivos();
-        criarArquivoHTMLTeste(); //TODO implementar
-        exibirArquivoHTMLEmDispositivos(); //TODO implementar
+        
+        criarArquivoHTMLTeste();
+        imprimirDispositivos();
+        
+        System.out.println("\n\n\n-> Lista de Dispositivos");
+        exibirArquivoHTMLEmDispositivos();
     }
     
     public static void criarDispositivos() {
@@ -58,9 +62,9 @@ public class TesteDispositivo {
         dispositivosLista.add(desktop);
         Notebook notebook = new Notebook(telaNotebook, "Notebook");
         dispositivosLista.add(notebook);
-        Tablet tablet = new Tablet(telaTablet, "Notebook");
+        Tablet tablet = new Tablet(telaTablet, "Tablet");
         dispositivosLista.add(tablet);
-        Smartphone smartphone = new Smartphone(telaSmartphone, "Notebook");
+        Smartphone smartphone = new Smartphone(telaSmartphone, "Smartphone");
         dispositivosLista.add(smartphone);
         //----------------------------------------------------------------------    
     }
@@ -68,7 +72,7 @@ public class TesteDispositivo {
     public static void imprimirDispositivos() {
         // imprime lista de dispositivos
         //----------------------------------------------------------------------
-        System.out.println("\n-> Lista de Dispositivos");
+        System.out.println("\n\n\n-> Lista de Dispositivos");
         for(int i = 0; i < dispositivosLista.size(); i++) {
             System.out.println("\n* Dispositivo " + (i+1) + ": ");
             System.out.println("------------------");
@@ -84,8 +88,8 @@ public class TesteDispositivo {
             if(dispositivosLista.get(i).getArquivosHTML().size()==0) {
                 System.out.println("\tNão há arquivos no dispositivo.");
             } else {
-                for(int j = 0; i < dispositivosLista.get(i).getArquivosHTML().size(); j++) {
-                    System.out.println("\tArquivo " + (j+1) + ": " + dispositivosLista.get(i).getArquivosHTML().get(i) );
+                for(int j = 0; j < dispositivosLista.get(i).getArquivosHTML().size(); j++) {
+                    System.out.println("\tArquivo " + (j+1) + ": " + dispositivosLista.get(i).getArquivosHTML().get(j).getNome() );
                 }
             }
         }
@@ -97,47 +101,48 @@ public class TesteDispositivo {
         ArquivoHTML arquivoHTML = new ArquivoHTML("teste1.html");
         
         //cria conteudos e adiciona no html
-        Conteudo paragrafo1 = new Conteudo("Paragrafo", tamanho, cor, valor);
-        arquivoHTML.adicionarConteudo(conteudo);
+        Tamanho tamanhoItem;
+        Cor corItem;
+        String valorItem;
         
+        tamanhoItem = new Tamanho(800D, 600D);
+        corItem = new Cor("Azul");
+        valorItem = "Este é o paragráfo 1.";
+        ItemConteudo paragrafo1 = new Paragrafo("Paragrafo", tamanhoItem, corItem, valorItem);
+        arquivoHTML.adicionarConteudo(paragrafo1);
+        
+        tamanhoItem = new Tamanho(1024D, 768D);
+        corItem = new Cor("Verde");
+        valorItem = "Este é o Link 1: http://github.com";
+        ItemConteudo link1 = new Paragrafo("Link", tamanhoItem, corItem, valorItem);
+        arquivoHTML.adicionarConteudo(link1);
+
+        tamanhoItem = new Tamanho(1366D, 768D);
+        corItem = new Cor("Azul");
+        valorItem = "Este é a Lista 1: Senai Cimatec, Senai Lapinha, Senai Dendezeiros";
+        ItemConteudo lista1 = new Paragrafo("Lista", tamanhoItem, corItem, valorItem);
+        arquivoHTML.adicionarConteudo(lista1);
         
         
         // adiciona o mesmo arquivo html em todos os dispositivos
         //----------------------------------------------------------------------
-        System.out.println("\n-> Lista de Dispositivos");
-        for(int i = 0; i < dispositivosLista.size(); i++) {
-            System.out.println("\n* Dispositivo " + (i+1) + ": ");
-            System.out.println("------------------");
-            System.out.println("- Tipo: " + dispositivosLista.get(i).getTipo());
-            System.out.println("- Tela: ");
-            System.out.println("\tFormato: " + dispositivosLista.get(i).getTela().getFormato());
-            System.out.println("\tTamanho (Largura x Altura): "
-                    + dispositivosLista.get(i).getTela().getTamanho().getAltura()
-                    + " x "
-                    + dispositivosLista.get(i).getTela().getTamanho().getLargura()
-                    + " cm");
-            System.out.println("- Arquivos: ");
-            if(dispositivosLista.get(i).getArquivosHTML().size()==0) {
-                System.out.println("\tNão há arquivos no dispositivo.");
-            } else {
-                for(int j = 0; i < dispositivosLista.get(i).getArquivosHTML().size(); j++) {
-                    System.out.println("\tArquivo " + (j+1) + ": " + dispositivosLista.get(i).getArquivosHTML().get(i) );
-                }
-            }
+        for(Dispositivo dispositivo : dispositivosLista) {
+            dispositivo.getArquivosHTML().add(arquivoHTML);
         }
         //----------------------------------------------------------------------
-        
         
     }
  
     public static void exibirArquivoHTMLEmDispositivos() {
-        // exibe (com renderizacao) o arquivo html de/em cada dispositivo
-        // Dispositivo
-        // Tela
-        // formato
-        // tamanho
-        // nome do arquivo
-        // metodo exibir conteudos e tamanhos  
+        
+        // itera os dispositivos
+        for(Dispositivo dispositivo : dispositivosLista) {
+            
+            // itera os arquivos de cada dispositivo
+            for(ArquivoHTML htmlCurrent : dispositivo.getArquivosHTML()) {
+                dispositivo.exibirArquivoHTML(htmlCurrent);
+            }
+            
+        }
     }
-    
 }

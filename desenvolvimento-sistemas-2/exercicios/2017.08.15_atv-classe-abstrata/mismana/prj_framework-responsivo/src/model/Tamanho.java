@@ -24,5 +24,9 @@ public class Tamanho {
     public void setLargura(Double largura) {
         this.largura = largura;
     }
+
+    Tamanho get(String key) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
