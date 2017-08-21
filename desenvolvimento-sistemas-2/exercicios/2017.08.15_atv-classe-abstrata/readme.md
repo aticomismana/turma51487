@@ -1,4 +1,5 @@
 ﻿# Atividade  - Classe e Método Abstrato (com ArrayList)  
+					(com atributo statico) David  
 
 ## Questão 1:  
 
