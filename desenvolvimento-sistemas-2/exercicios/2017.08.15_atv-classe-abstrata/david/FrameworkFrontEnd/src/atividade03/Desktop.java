@@ -11,6 +11,7 @@ package atividade03;
  */
 public class Desktop extends Dispositivo{
     
+    // Remover construtor, REDUNDANCIA
     public Desktop(Html textos){
         textos.setTamanho(textos.tamanho);
         textos.setCor(textos.cor);
