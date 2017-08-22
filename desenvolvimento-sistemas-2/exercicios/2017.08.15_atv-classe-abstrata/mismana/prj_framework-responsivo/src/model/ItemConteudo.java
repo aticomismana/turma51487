@@ -9,8 +9,8 @@ public abstract class ItemConteudo {
     private final String tipo;
     private Tamanho tamanho;
     private Map<String, Tamanho> tamanhoMinimo;             // <"TelaAltura:TelaLargura", Tamanho>
-    private Map<String, Tamanho> tamanhoRedimensionado;     // <"TelaAltura:TelaLargura", Tamanho>
-    private Cor cor;       //TODO alterar diagrama
+    private Tamanho tamanhoExibicaoAtual;
+    private Cor cor;                                        //TODO alterar diagrama
     private String valor;
 
     public String getTipo() {
@@ -25,6 +25,10 @@ public abstract class ItemConteudo {
         this.tamanho = tamanho;
     }
 
+    public Tamanho getTamanhoExibicaoAtual() {
+        return tamanhoExibicaoAtual;
+    }
+    
     public Cor getCor() {
         return cor;
     }
@@ -90,31 +94,37 @@ public abstract class ItemConteudo {
             // cria tamanho Minimo usando percentual randomico
             Random random = new Random();
             int nPercentualAleatorio = random.nextInt(100);
+            System.out.println("Para tela com altura " + altura + " e largura " + largura
+                    + ", o percentual randomico a ser atribuido é: " + nPercentualAleatorio);
             
-            Tamanho tamanhoMinimoItem = new Tamanho(
-                    altura *= nPercentualAleatorio,
-                    largura *= nPercentualAleatorio
-            );
+            Double dPercentualAleatorio = (double) nPercentualAleatorio;
+            Double alturaMinima = altura * (dPercentualAleatorio/100);
+            Double larguraMinima = largura * (dPercentualAleatorio/100);
+            
+            Tamanho tamanhoMinimoItem = new Tamanho(alturaMinima, larguraMinima);
             
             // adiciona no mapa o tamanhoMinimo pra aquela tamanho de tela (key)
             this.tamanhoMinimo.put(key, tamanhoMinimoItem);
         }   
     }
-    
-    public Tamanho getTamanhoRedimensionado(String key) {   //TODO URGENTE
-        Tamanho tamanhoRedimensionado = this.tamanhoRedimensionado.get(key);
-        if(tamanhoRedimensionado!=null) {
-            return tamanhoRedimensionado;
-        } else {
-            this.calcularTamanhoRedimensionado();
-            return this.getTamanhoRedimensionado(key);
-            //TODO erro grave, se nao existir no metodo da construcao do tamanho minimo, o tamanho de tela,
-            // entrara num loop infinito
-        }
-    }
    
-    private Tamanho calcularTamanhoRedimensionado() {       //TODO URGENTE
-        return null;
+    public boolean redimensionar(Tamanho tamanhoTelaDispositivo, Double porcentagem) {
+        String keyTelaDispositivo = tamanhoTelaDispositivo.getAltura() + ":" + tamanhoTelaDispositivo.getLargura();
+        Tamanho tamanhoMinimo = this.tamanhoMinimo.get(keyTelaDispositivo);
+        
+        if(this.tamanhoExibicaoAtual.getAltura() > tamanhoMinimo.getAltura() &&
+                this.tamanhoExibicaoAtual.getLargura() > tamanhoMinimo.getLargura()) {
+            
+            Double alturaAtual = this.tamanhoExibicaoAtual.getAltura();
+            Double larguraAtual = this.tamanhoExibicaoAtual.getLargura();
+            alturaAtual -= (alturaAtual* (porcentagem/100));
+            larguraAtual -= (larguraAtual* (porcentagem/100));
+            
+            this.tamanhoExibicaoAtual.setAltura(alturaAtual);
+            this.tamanhoExibicaoAtual.setLargura(larguraAtual);
+            return true;
+        }
+        return false;
     }
     
     public ItemConteudo(String tipo, Tamanho tamanho, Cor cor, String valor) {
@@ -124,9 +134,8 @@ public abstract class ItemConteudo {
         this.valor = valor;
         
         tamanhoMinimo = new HashMap<String,Tamanho>();
-        tamanhoRedimensionado = new HashMap<String,Tamanho>();
+        tamanhoExibicaoAtual = new Tamanho(this.tamanho.getAltura(), this.tamanho.getLargura());
+        this.calcularTamanhoMinimo();
     }
 
-
-    
 }
