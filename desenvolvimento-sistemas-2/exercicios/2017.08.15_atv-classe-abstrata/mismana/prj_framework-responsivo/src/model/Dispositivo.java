@@ -58,6 +58,12 @@ public abstract class Dispositivo {
                         + " cm"
                     );
                     
+                    Tamanho tamanhoExibicaoItem = itemConteudo.getTamanhoExibicaoAtual(); 
+                    System.out.println("\t\t\t- Tamanho Exibição (Largura x Altura): "
+                        + tamanhoExibicaoItem.getAltura() + " x " + tamanhoExibicaoItem.getLargura()
+                        + " cm"
+                    );
+                    
                     System.out.println("\t\t\t- Valor: ");
                     System.out.println("\t\t\t\t- " + itemConteudo.getValor() + "\n");
                 }
@@ -71,24 +77,62 @@ public abstract class Dispositivo {
     
     //TODO URGENTE
     private void renderizarArquivoHTML(ArquivoHTML arquivoHTML) {      //TODO alter diagrama
-        Double contAlturaOriginal = 0D;
-        Double contLarguraOriginal = 0D;
+        Double porcentagemRedimensionamento = 1D;
+        
+        Double alturaTotalConteudos = 0D;      // nao retorna o valor, retorna o objeto
+        Double larguraTotalConteudos = 0D;    // nao retorna o valor, retorna o objeto
         
         // itera os itens do conteudo do arquivo
         for(ItemConteudo itemConteudo : arquivoHTML.getConteudo()) {
-            contAlturaOriginal += itemConteudo.getTamanho().getAltura();
-            contLarguraOriginal += itemConteudo.getTamanho().getLargura();
+            //Double alturaAtual = tamanhoConteudo.getAltura();
+            alturaTotalConteudos += itemConteudo.getTamanho().getAltura();
+            
+            //Double larguraAtual = tamanhoConteudo.getLargura();
+            larguraTotalConteudos += itemConteudo.getTamanho().getLargura();
         }
         
-        if(contAlturaOriginal<=this.getTela().getTamanho().getAltura() &&
-                contLarguraOriginal<=this.getTela().getTamanho().getLargura()) {
-            return;
-        } else {
+        System.out.println(""
+                + "tamanhoConteudo:\taltura: "
+                + alturaTotalConteudos
+                + "\tlargura: "
+                + larguraTotalConteudos
+        );
+        
+        int qtdConteudosARedimensionar = arquivoHTML.getConteudo().size();
+        
+        // necessário para re-iniciar o loop
+        int cicloCompletoDeConteudos = arquivoHTML.getConteudo().size();
+        int contador=0;
+        
+        while( (alturaTotalConteudos > this.getTela().getTamanho().getAltura() &&
+                larguraTotalConteudos > this.getTela().getTamanho().getLargura() ) &&
+                qtdConteudosARedimensionar > 0) {
+            System.out.println("alturaTotal: " + alturaTotalConteudos + "larguraTotal: " + larguraTotalConteudos);
+            // renderizar objeto
+            ItemConteudo itemConteudo = arquivoHTML.getConteudo().get(contador);
+            Double alturaConteudoAtual = itemConteudo.getTamanho().getAltura();
+            Double larguraConteudoAtual = itemConteudo.getTamanho().getLargura();
             
+            //if (!arquivoHTML.getConteudo().get(contador).redimensionar(this.getTela().getTamanho(), porcentagemRedimensionamento)) {
+            if(itemConteudo.redimensionar(this.getTela().getTamanho(), porcentagemRedimensionamento)) {
+                alturaTotalConteudos -= alturaConteudoAtual*(porcentagemRedimensionamento/100);
+                //tamanhoConteudo.setAltura(alturaTotalConteudos);      // nao precisa
+                larguraTotalConteudos -= larguraConteudoAtual*(porcentagemRedimensionamento/100);
+                //tamanhoConteudo.setLargura(larguraTotalConteudos);      // nao precisa
+            } else {
+                // se nao redimensionar, ou seja, tamanhoMinimo do conteudo ja atingido, subtrai no contador
+                qtdConteudosARedimensionar--;
+            }
+            
+            // incrementa contador de arquivos
+            if(contador==cicloCompletoDeConteudos-1) {
+                contador=0;
+            } else {
+                contador++;
+            }
         }
     }
 
-    
     public Dispositivo(Tela tela, String tipo){
         this.arquivosHTML = new ArrayList<>();
         this.tela = tela;
