@@ -23,6 +23,7 @@ public class Aviao {
         this.fabricante = fabricante;
         qtdAviao ++;
     }
+    
     public String getPrefixo(){
         return this.prefixo;
     }   

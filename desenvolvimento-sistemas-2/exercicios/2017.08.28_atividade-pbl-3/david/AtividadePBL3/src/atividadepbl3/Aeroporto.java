@@ -15,34 +15,63 @@ public class Aeroporto {
     protected String codigo;
     protected String nome;
     protected String status;
-    protected ArrayList<Aeroporto> aeropostoPartir;
-    protected ArrayList<Aeroporto> aeropostoChegar;
-    protected ArrayList<Aviao> aviaoPatio;
-    
-    
-    
+    protected ArrayList<Voo> vooOrigem;
+    protected ArrayList<Voo> vooDestino;
+    protected ArrayList<Aviao> aviao;
+    protected ArrayList<Aeroporto> aeroposto;
+            
     public Aeroporto(String codigo, String nome){
         this.codigo = codigo;
         this.nome = nome;
-        aviaoPatio = new ArrayList<Aviao>();
+        vooOrigem = new ArrayList<>();
+        vooDestino = new ArrayList<>();
+        aviao = new ArrayList<>();
+        aeroposto = new ArrayList();
     }
-    
-    public ArrayList<Aviao> getAviaoPatio(){
-        return this.aviaoPatio;
-    }
-    
+        
     public void setStatus(String status){
         this.status = status;
     }
     public String getStatus(){
         return this.status;
     }
-     public boolean verificaIgualdade(Aeroporto aeroposto){
+    //Adiciona avião ao patio do aeroporto
+    public void adicionarPatio(Aviao aviao){
+        this.aviao.add(aviao);
+    }
+    //Verifica se o avião está na lista de aviões do patio
+    public boolean verificarPatio(Aviao aviao){
         boolean aux = false;
-        if(aeroposto.codigo.equals(this.codigo)){
-            aux = true;
+        int i;
+        for(i = 0; i < this.aviao.size(); i++){
+            if(this.aviao.get(i).prefixo.equals(aviao.prefixo)){
+                return true;
+            }
         }
         return aux;
     }
-   
+    //Verifica se existe voo com destino a o aeroporto sugerido
+    public boolean verificaVoo(Aeroporto aeroporto){
+        boolean aux = false;
+        int i, j;
+        for(i = 0; i < aeroposto.size(); i++){
+            for(j = 0; j < vooDestino.size(); j++){              
+                if(aeroposto.get(i).vooDestino.get(j).destino.nome.equals(aeroporto.nome)){
+                    return true;
+                }
+            }
+        }        
+        return false;
+    }
+    //Verifica se existe aeroportos iguais
+    public boolean verificaIgualdade(Aeroporto aeroporto){
+        boolean aux = false;
+        int i;
+        for(i = 0; i < aeroposto.size(); i ++){
+            if(aeroposto.get(i).codigo.equals(aeroporto.codigo)){
+                return true;
+            }        
+        }
+        return aux;
+    }   
 }
