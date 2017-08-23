@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class Aeroporto {
     protected String codigo;
     protected String nome;
-    protected String status;
+    protected String status = "No status";
     protected ArrayList<Voo> vooOrigem;
     protected ArrayList<Voo> vooDestino;
     protected ArrayList<Aviao> aviao;
-    protected ArrayList<Aeroporto> aeroposto;
+    protected static ArrayList<Aeroporto> aeroposto;
             
     public Aeroporto(String codigo, String nome){
         this.codigo = codigo;
@@ -28,16 +28,25 @@ public class Aeroporto {
         aviao = new ArrayList<>();
         aeroposto = new ArrayList();
     }
-        
-    public void setStatus(String status){
-        this.status = status;
+    
+    public String getCodigo(){
+        return this.codigo;
     }
+    public String getNome(){
+        return this.nome;
+    }    
     public String getStatus(){
         return this.status;
     }
+    public void setStatus(String status){
+        this.status = status;
+    }
+    
     //Adiciona avião ao patio do aeroporto
     public void adicionarPatio(Aviao aviao){
-        this.aviao.add(aviao);
+        if(this.aviao.size() <100){            
+            this.aviao.add(aviao);
+        }
     }
     //Verifica se o avião está na lista de aviões do patio
     public boolean verificarPatio(Aviao aviao){
@@ -58,7 +67,7 @@ public class Aeroporto {
             for(j = 0; j < vooDestino.size(); j++){              
                 if(aeroposto.get(i).vooDestino.get(j).destino.nome.equals(aeroporto.nome)){
                     return true;
-                }
+                 }
             }
         }        
         return false;
@@ -73,5 +82,11 @@ public class Aeroporto {
             }        
         }
         return aux;
-    }   
+    }
+    public static ArrayList getListaAeroportos(){
+        return aeroposto;
+    }
+    public static Aeroporto getAeroportos(int i){
+        return aeroposto.get(i);
+    }
 }
