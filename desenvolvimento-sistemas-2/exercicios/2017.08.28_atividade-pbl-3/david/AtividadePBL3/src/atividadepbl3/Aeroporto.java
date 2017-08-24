@@ -12,21 +12,17 @@ import java.util.ArrayList;
  * @author davii
  */
 public class Aeroporto {
-    protected String codigo;
-    protected String nome;
-    protected String status = "No status";
-    protected ArrayList<Voo> vooOrigem;
-    protected ArrayList<Voo> vooDestino;
-    protected ArrayList<Aviao> aviao;
-    protected static ArrayList<Aeroporto> aeroposto;
+    private String codigo;
+    private String nome;
+    private String status = "No status";
+    private ArrayList<Voo> vooOrigem = new ArrayList<>();
+    private ArrayList<Voo> vooDestino = new ArrayList<>();
+    private static ArrayList<Aviao> aviao = new ArrayList<>();
+    private static ArrayList<Aeroporto> aeroposto = new ArrayList<>();
             
     public Aeroporto(String codigo, String nome){
         this.codigo = codigo;
         this.nome = nome;
-        vooOrigem = new ArrayList<>();
-        vooDestino = new ArrayList<>();
-        aviao = new ArrayList<>();
-        aeroposto = new ArrayList();
     }
     
     public String getCodigo(){
@@ -41,23 +37,58 @@ public class Aeroporto {
     public void setStatus(String status){
         this.status = status;
     }
-    
+    public static void setAeroporto(Aeroporto aeroporto){
+        aeroposto.add(aeroporto);
+    }
+    public void setSaidaVoo(Voo voo){
+        vooOrigem.add(voo);
+    }
+    public Voo getSaidaVoo(int i){
+        return vooOrigem.get(i);
+    }
+    public ArrayList getListaSaidaVoo(){
+        return vooOrigem;
+    }
+    public void setChegadaVoo(Voo voo){
+        vooDestino.add(voo);
+    }
+    public Voo getChegadaVoo(int i){
+        return vooDestino.get(i);
+    }
+    public ArrayList getListaChegadaVoo(){
+        return vooDestino;
+    }
     //Adiciona avião ao patio do aeroporto
-    public void adicionarPatio(Aviao aviao){
-        if(this.aviao.size() <100){            
-            this.aviao.add(aviao);
+    public static boolean adicionarPatio(Aviao aviao){
+        if(Aeroporto.aviao.size() <100){            
+            Aeroporto.aviao.add(aviao);
+            return true;
+        }else{
+            return false;
         }
     }
     //Verifica se o avião está na lista de aviões do patio
-    public boolean verificarPatio(Aviao aviao){
+    public static boolean verificarPatio(Aviao aviao){
         boolean aux = false;
         int i;
-        for(i = 0; i < this.aviao.size(); i++){
-            if(this.aviao.get(i).prefixo.equals(aviao.prefixo)){
+        for(i = 0; i < Aeroporto.aviao.size(); i++){
+            if(Aeroporto.aviao.get(i).getPrefixo().equals(aviao.getPrefixo())){
                 return true;
             }
         }
         return aux;
+    }
+    //Remove avião do patio
+    public static void removerAviaoPatio(Aviao avia){
+        aviao.remove(avia);
+    }
+    //Retorna os indices dos aviões
+    public static ArrayList getNumAviaoPatio(){
+        return aviao;
+    }
+    //Pega uma Avião que está no pátio de determinado Aeroporto
+    public Aviao getAviaoPatio(int i){
+        return aviao.get(i);
     }
     //Verifica se existe voo com destino a o aeroporto sugerido
     public boolean verificaVoo(Aeroporto aeroporto){
@@ -83,10 +114,12 @@ public class Aeroporto {
         }
         return aux;
     }
-    public static ArrayList getListaAeroportos(){
+    //Pega os indices dos Aeroportos
+    public static ArrayList getListaAeroporto(){
         return aeroposto;
     }
-    public static Aeroporto getAeroportos(int i){
+    //Pega os dados dos Aeroportos
+    public static Aeroporto getAeroporto(int i){
         return aeroposto.get(i);
     }
 }

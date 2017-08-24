@@ -12,12 +12,12 @@ import java.util.ArrayList;
  * @author davii
  */
 public class Aviao {
-    protected String prefixo;
-    protected String modelo;
-    protected String fabricante;
-    protected int assentos;
-    protected int assentosOculpados;
-    protected ArrayList<Aviao> aviao;
+    private String prefixo;
+    private String modelo;
+    private String fabricante;
+    private int assentos;
+    private int assentosOculpados;
+    private static ArrayList<Aviao> aviao;
     static int qtdAviao;
     
     public Aviao(String prefixo, String modelo, String fabricante, int assentos, int assentosOculpados){
@@ -59,11 +59,17 @@ public class Aviao {
     public int getAssentosOculpados(){
         return this.assentosOculpados;
     }
-    public void setAviao(Aviao aviao){
-        this.aviao.add(aviao);
+    public static ArrayList getListaAviao(){
+        return aviao;
     }
-    public ArrayList<Aviao> getAviao(int i){
-        return this.getAviao(i);
+    public static void setAviao(Aviao aviao){
+        Aviao.aviao.add(aviao);
+    }
+    public static Aviao getAviao(int i){
+        return Aviao.getAviao(i);
+    }
+    public static void removeAviao(Aviao aviao){
+        Aviao.aviao.remove(aviao);
     }
     public int getQtdAviao(){
         return Aviao.qtdAviao;
