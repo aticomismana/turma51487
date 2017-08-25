@@ -86,8 +86,8 @@ public class Aeroporto {
     public static ArrayList getNumAviaoPatio(){
         return aviao;
     }
-    //Pega uma Avião que está no pátio de determinado Aeroporto
-    public Aviao getAviaoPatio(int i){
+    //Pega uma Avião que está no pátio do Aeroporto
+    public static Aviao getAviaoPatio(int i){
         return aviao.get(i);
     }
     //Verifica se existe voo com destino a o aeroporto sugerido
