@@ -96,13 +96,14 @@ public class Main {
                                                                                       + "para por no pátio"));
                             Aeroporto.adicionarPatio(Aviao.getAviao(selecionarAviao));
                             //Aeroporto.getAeroporto(selecionarAeroporto).adicionarPatio(Aviao.getAviao(selecionarAviao));
-                            Aviao.removeAviao(Aviao.getAviao(selecionarAviao));
                             JOptionPane.showMessageDialog(null, "Avião " 
                                                         + Aviao.getAviao(selecionarAviao).getPrefixo() + "-"
                                                         + Aviao.getAviao(selecionarAviao).getModelo()
-                                                        + "adicionado ao pátio do Aeroporto "
+                                                        + " adicionado ao pátio do Aeroporto "
                                                         + Aeroporto.getAeroporto(selecionarAeroporto).getCodigo() + "-"
                                                         + Aeroporto.getAeroporto(selecionarAeroporto).getNome());
+                            Aviao.removeAviao(Aviao.getAviao(selecionarAviao));
+                            
                             break;
                         case 3:
                             int vooS = 0, vooC = 0;
@@ -112,9 +113,9 @@ public class Main {
                                 case 1:
                                     while(vooS == 0){
                                         JOptionPane.showMessageDialog(null, "Lista de Aviões: " );
-                                        for(int i = 0; i < Aviao.getListaAviao().size(); i ++){
-                                            System.out.println(i + "- " + Aviao.getAviao(i).getPrefixo() + "-" 
-                                                                 + Aviao.getAviao(i).getModelo() + "\n");
+                                        for(int i = 0; i < Aeroporto.getNumAviaoPatio().size(); i ++){
+                                            System.out.println(i + "- " + Aeroporto.getAviaoPatio(selecionarAeroporto).getPrefixo() + "-" 
+                                                                 + Aeroporto.getAviaoPatio(selecionarAeroporto).getModelo() + "\n");
                                         }
                                         int selecionarAviaoPatio = Integer.parseInt(JOptionPane.showInputDialog("Escolha o Avião para o voo"));
                                         Aviao aviao = Aeroporto.getAeroporto(selecionarAeroporto).getAviaoPatio(selecionarAviaoPatio);
@@ -213,4 +214,3 @@ public class Main {
         }
     }    
 }
- 

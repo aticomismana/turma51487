@@ -17,7 +17,7 @@ public class Aviao {
     private String fabricante;
     private int assentos;
     private int assentosOculpados;
-    private static ArrayList<Aviao> aviao;
+    private static ArrayList<Aviao> aviao = new ArrayList<>();
     static int qtdAviao;
     
     public Aviao(String prefixo, String modelo, String fabricante, int assentos, int assentosOculpados){
@@ -26,7 +26,6 @@ public class Aviao {
         this.fabricante = fabricante;
         this.assentos = assentos;
         this.assentosOculpados = assentosOculpados;
-        aviao = new ArrayList<>();
         qtdAviao ++;
     }
     public void setPrefixo(String prefixo){
@@ -62,14 +61,14 @@ public class Aviao {
     public static ArrayList getListaAviao(){
         return aviao;
     }
-    public static void setAviao(Aviao aviao){
-        Aviao.aviao.add(aviao);
+    public static void setAviao(Aviao avia){
+        aviao.add(avia);
     }
     public static Aviao getAviao(int i){
-        return Aviao.getAviao(i);
+        return aviao.get(i);
     }
-    public static void removeAviao(Aviao aviao){
-        Aviao.aviao.remove(aviao);
+    public static void removeAviao(Aviao avia){
+        aviao.remove(avia);
     }
     public int getQtdAviao(){
         return Aviao.qtdAviao;
