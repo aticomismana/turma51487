@@ -107,22 +107,48 @@ public abstract class Dispositivo {
         while( (alturaTotalConteudos > this.getTela().getTamanho().getAltura() &&
                 larguraTotalConteudos > this.getTela().getTamanho().getLargura() ) &&
                 qtdConteudosARedimensionar > 0) {
-            System.out.println("alturaTotal: " + alturaTotalConteudos + "larguraTotal: " + larguraTotalConteudos);
+            
+            System.out.println("alturaTotal: " + alturaTotalConteudos + " larguraTotal: " + larguraTotalConteudos);
+            
             // renderizar objeto
             ItemConteudo itemConteudo = arquivoHTML.getConteudo().get(contador);
-            Double alturaConteudoAtual = itemConteudo.getTamanho().getAltura();
-            Double larguraConteudoAtual = itemConteudo.getTamanho().getLargura();
+            Double alturaConteudoAtual = itemConteudo.getTamanhoExibicaoAtual().getAltura();
+            Double larguraConteudoAtual = itemConteudo.getTamanhoExibicaoAtual().getLargura();
             
-            //if (!arquivoHTML.getConteudo().get(contador).redimensionar(this.getTela().getTamanho(), porcentagemRedimensionamento)) {
-            if(itemConteudo.redimensionar(this.getTela().getTamanho(), porcentagemRedimensionamento)) {
-                alturaTotalConteudos -= alturaConteudoAtual*(porcentagemRedimensionamento/100);
+            Double reducaoAlturaConteudoAtual = itemConteudo.redimensionarAltura(
+                    this.getTela().getTamanho(), porcentagemRedimensionamento
+            );
+            Double reducaoLarguraConteudoAtual = itemConteudo.redimensionarLargura(
+                    this.getTela().getTamanho(), porcentagemRedimensionamento
+            );
+            
+            if(reducaoAlturaConteudoAtual != null) {
+                alturaTotalConteudos -= reducaoAlturaConteudoAtual;
                 //tamanhoConteudo.setAltura(alturaTotalConteudos);      // nao precisa
-                larguraTotalConteudos -= larguraConteudoAtual*(porcentagemRedimensionamento/100);
+            }
+            
+            if(reducaoLarguraConteudoAtual != null) {
+                larguraTotalConteudos -= reducaoLarguraConteudoAtual;
                 //tamanhoConteudo.setLargura(larguraTotalConteudos);      // nao precisa
-            } else {
+            }
+            
+            if(reducaoAlturaConteudoAtual != null && reducaoLarguraConteudoAtual != null) {
                 // se nao redimensionar, ou seja, tamanhoMinimo do conteudo ja atingido, subtrai no contador
+                // TODO implementar uma lista com o indice dos conteudos a ainda serem alterados e iterar eles somente
                 qtdConteudosARedimensionar--;
             }
+            
+//            //if (!arquivoHTML.getConteudo().get(contador).redimensionar(this.getTela().getTamanho(), porcentagemRedimensionamento)) {
+//            if(itemConteudo.redimensionar(this.getTela().getTamanho(), porcentagemRedimensionamento)) {
+//                alturaTotalConteudos -= alturaConteudoAtual*(porcentagemRedimensionamento/100);
+//                //tamanhoConteudo.setAltura(alturaTotalConteudos);      // nao precisa
+//                larguraTotalConteudos -= larguraConteudoAtual*(porcentagemRedimensionamento/100);
+//                //tamanhoConteudo.setLargura(larguraTotalConteudos);      // nao precisa
+//            } else {
+//                // se nao redimensionar, ou seja, tamanhoMinimo do conteudo ja atingido, subtrai no contador
+//                qtdConteudosARedimensionar--;
+//                //System.out.println("qtdConteudosARedimensionar: " + qtdConteudosARedimensionar);
+//            }
             
             // incrementa contador de arquivos
             if(contador==cicloCompletoDeConteudos-1) {
