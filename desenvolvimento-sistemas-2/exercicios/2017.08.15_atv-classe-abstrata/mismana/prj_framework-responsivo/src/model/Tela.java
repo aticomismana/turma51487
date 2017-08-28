@@ -2,9 +2,9 @@ package model;
 
 public class Tela {
     private final Tamanho tamanho;
-    private final String formato;   //TODO arrumar diagrama
+    private final String formato;
     
-    public Tela(Tamanho tamanho, String formato) {      //TODO arrumar diagrama
+    public Tela(Tamanho tamanho, String formato) {
         this.tamanho = tamanho;
         this.formato = formato;
     }
