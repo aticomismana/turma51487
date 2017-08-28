@@ -11,4 +11,8 @@ package frameworkfrontend;
  */
 public  class Paragrafo extends Elemento {
     
+     public Paragrafo(){
+        Elemento.qtdElemento += 1;
+    }
+     
 }

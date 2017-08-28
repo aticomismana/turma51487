@@ -11,4 +11,7 @@ package frameworkfrontend;
  */
 public class Link extends Elemento {
     
+     public Link(){
+        Elemento.qtdElemento += 1;
+    }
 }
