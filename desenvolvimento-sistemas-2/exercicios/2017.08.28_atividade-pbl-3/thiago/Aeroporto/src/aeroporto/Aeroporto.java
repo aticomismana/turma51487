@@ -48,17 +48,27 @@ public class Aeroporto {
         return aeroporto.codigo == this.codigo;
     }
     
-    public void adicionarAviaoNoPatio(Aviao aviao){
-        avioesPatio.add(aviao);
+    public boolean adicionarAviaoNoPatio(Aviao aviao){
+        if(avioesPatio.size() < 100){
+            avioesPatio.add(aviao);
+            return true;
+        }
+        
+        return false;
     }
     
     public void removerAviaoDoPatio(Aviao aviao){
         avioesPatio.remove(aviao);
     }
     
-    public void adicionaVoo(Aeroporto aeroporto, Aviao aviao){
-        Voo voo = new Voo(aeroporto, this, aviao);
-        voos.add(voo);
+    public boolean adicionaVoo(Aeroporto aeroporto, Aviao aviao){
+        if(voos.size()){
+            Voo voo = new Voo(aeroporto, this, aviao);
+            voos.add(voo);
+            return true;
+        }
+        
+        return false
     }
 
     public ArrayList<Voo> getVoos() {
