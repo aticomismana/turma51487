@@ -114,13 +114,13 @@ public class TesteDispositivo {
         tamanhoItem = new Tamanho(1024D, 768D);
         corItem = new Cor("Verde");
         valorItem = "Este é o Link 1: http://github.com";
-        ItemConteudo link1 = new Paragrafo("Link", tamanhoItem, corItem, valorItem);
+        ItemConteudo link1 = new Link("Link", tamanhoItem, corItem, valorItem);
         arquivoHTML.adicionarConteudo(link1);
 
         tamanhoItem = new Tamanho(1366D, 768D);
         corItem = new Cor("Azul");
         valorItem = "Este é a Lista 1: Senai Cimatec, Senai Lapinha, Senai Dendezeiros";
-        ItemConteudo lista1 = new Paragrafo("Lista", tamanhoItem, corItem, valorItem);
+        ItemConteudo lista1 = new Lista("Lista", tamanhoItem, corItem, valorItem);
         arquivoHTML.adicionarConteudo(lista1);
         
         

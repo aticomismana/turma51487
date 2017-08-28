@@ -93,7 +93,7 @@ public abstract class ItemConteudo {
             
             // cria tamanho Minimo usando percentual randomico
             Random random = new Random();
-            int nPercentualAleatorio = random.nextInt(100);
+            int nPercentualAleatorio = random.nextInt(40);
             System.out.println("Para tela com altura " + altura + " e largura " + largura
                     + ", o percentual randomico a ser atribuido é: " + nPercentualAleatorio);
             
@@ -108,23 +108,29 @@ public abstract class ItemConteudo {
         }   
     }
    
-    public boolean redimensionar(Tamanho tamanhoTelaDispositivo, Double porcentagem) {
+    public Double redimensionarAltura(Tamanho tamanhoTelaDispositivo, Double porcentagem) {
         String keyTelaDispositivo = tamanhoTelaDispositivo.getAltura() + ":" + tamanhoTelaDispositivo.getLargura();
         Tamanho tamanhoMinimo = this.tamanhoMinimo.get(keyTelaDispositivo);
         
-        if(this.tamanhoExibicaoAtual.getAltura() > tamanhoMinimo.getAltura() &&
-                this.tamanhoExibicaoAtual.getLargura() > tamanhoMinimo.getLargura()) {
-            
+        if(this.tamanhoExibicaoAtual.getAltura() > tamanhoMinimo.getAltura()) {
             Double alturaAtual = this.tamanhoExibicaoAtual.getAltura();
-            Double larguraAtual = this.tamanhoExibicaoAtual.getLargura();
-            alturaAtual -= (alturaAtual* (porcentagem/100));
-            larguraAtual -= (larguraAtual* (porcentagem/100));
-            
-            this.tamanhoExibicaoAtual.setAltura(alturaAtual);
-            this.tamanhoExibicaoAtual.setLargura(larguraAtual);
-            return true;
+            Double alturaReducao = alturaAtual* (porcentagem/100);
+            this.tamanhoExibicaoAtual.setAltura(alturaAtual-alturaReducao);
+            return alturaReducao;
         }
-        return false;
+        return null;
+    }
+    
+    public Double redimensionarLargura(Tamanho tamanhoTelaDispositivo, Double porcentagem) {
+        String keyTelaDispositivo = tamanhoTelaDispositivo.getAltura() + ":" + tamanhoTelaDispositivo.getLargura();
+        Tamanho tamanhoMinimo = this.tamanhoMinimo.get(keyTelaDispositivo);
+        
+        if(this.tamanhoExibicaoAtual.getLargura() > tamanhoMinimo.getLargura()) {
+            Double larguraAtual = this.tamanhoExibicaoAtual.getLargura();
+            Double larguraReducao = larguraAtual * (porcentagem/100);
+            this.tamanhoExibicaoAtual.setLargura(larguraAtual-larguraReducao);
+        }
+        return null;
     }
     
     public ItemConteudo(String tipo, Tamanho tamanho, Cor cor, String valor) {
