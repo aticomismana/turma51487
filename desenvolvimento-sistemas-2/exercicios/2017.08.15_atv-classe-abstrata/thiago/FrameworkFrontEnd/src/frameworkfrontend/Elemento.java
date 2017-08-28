@@ -13,11 +13,16 @@ public abstract class Elemento {
     private String cor;
     private double tamanho;
     private String conteudo;
+    public static int qtdElemento = 0;
 
     public String getCor() {
         return cor;
     }
-
+    
+    public int getQtdElemento(){
+        return qtdElemento;
+    }
+    
     public double getTamanho() {
         return tamanho;
     }

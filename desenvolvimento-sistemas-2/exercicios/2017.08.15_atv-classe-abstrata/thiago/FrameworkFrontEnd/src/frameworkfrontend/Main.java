@@ -47,6 +47,7 @@ public class Main {
             Elemento obj = (Elemento) notebook.visualizarConteudo().get(i);
             System.out.println ("COR: " + obj.getCor() + " TAMANHO: " + obj.getTamanho());
         }
-      }
-    
+        
+        System.out.println("Quantidade de elementos: " + Elemento.qtdElemento);
+    }   
 }
