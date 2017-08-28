@@ -11,4 +11,7 @@ package frameworkfrontend;
  */
 public class Lista extends Elemento {
     
+    public Lista(){
+        Elemento.qtdElemento += 1;
+    }
 }
