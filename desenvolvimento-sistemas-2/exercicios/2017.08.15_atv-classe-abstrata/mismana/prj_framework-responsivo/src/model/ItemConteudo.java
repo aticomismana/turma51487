@@ -10,56 +10,23 @@ public abstract class ItemConteudo {
     private Tamanho tamanho;
     private Map<String, Tamanho> tamanhoMinimo;             // <"TelaAltura:TelaLargura", Tamanho>
     private Tamanho tamanhoExibicaoAtual;
-    private Cor cor;                                        //TODO alterar diagrama
+    private Cor cor;
     private String valor;
 
-    public String getTipo() {
-        return tipo;
-    }
-    
-    public Tamanho getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(Tamanho tamanho) {
+    public ItemConteudo(String tipo, Tamanho tamanho, Cor cor, String valor) {
+        this.tipo = tipo;
         this.tamanho = tamanho;
-    }
-
-    public Tamanho getTamanhoExibicaoAtual() {
-        return tamanhoExibicaoAtual;
-    }
-    
-    public Cor getCor() {
-        return cor;
-    }
-
-    public void setCor(Cor cor) {
         this.cor = cor;
-    }
-
-    public String getValor() {
-        return valor;
-    }
-
-    public void setValor(String valor) {
         this.valor = valor;
+        
+        tamanhoMinimo = new HashMap<String,Tamanho>();
+        tamanhoExibicaoAtual = new Tamanho(this.tamanho.getAltura(), this.tamanho.getLargura());
+        this.calcularTamanhoMinimo();
     }
 
-    public Tamanho getTamanhoMinimo(String key) {
-        Tamanho tamanhoMinimo = this.tamanhoMinimo.get(key);
-        if(tamanhoMinimo!=null) {
-            return tamanhoMinimo;
-        } else {
-            this.calcularTamanhoMinimo();
-            return this.getTamanhoMinimo(key);
-            //TODO erro grave, se nao existir no metodo da construcao do tamanho minimo, o tamanho de tela,
-            // entrara num loop infinito
-        }
-    }
-    
     public void calcularTamanhoMinimo() {
-        //TODO implementar iterador por enum de tamanhos de telas...??
         
+        //TODO implementar iterador por enum de tamanhos de telas...??     
 //        for(DispositivoEnum dispositivoEnum : DispositivoEnum.getDispositivoEnumList()) {
 //            if(dispositivoEnum==DispositivoEnum.DESKTOP) {
 //                
@@ -107,6 +74,64 @@ public abstract class ItemConteudo {
             this.tamanhoMinimo.put(key, tamanhoMinimoItem);
         }   
     }
+    
+    public String getTipo() {
+        return tipo;
+    }
+    
+    public Tamanho getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(Tamanho tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public Tamanho getTamanhoMinimo(String key) {
+        Tamanho tamanhoMinimo = this.tamanhoMinimo.get(key);
+        if(tamanhoMinimo!=null) {
+            return tamanhoMinimo;
+        } else {
+            this.calcularTamanhoMinimo();
+            return this.getTamanhoMinimo(key);
+            //TODO erro grave, se nao existir no metodo da construcao do tamanho minimo, o tamanho de tela,
+            // entrara num loop infinito
+        }
+    }
+    
+    public Tamanho getTamanhoExibicaoAtual() {
+        return tamanhoExibicaoAtual;
+    }
+    
+    public Cor getCor() {
+        return cor;
+    }
+
+    public void setCor(Cor cor) {
+        this.cor = cor;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    // redimensionamento idiossincrasico
+    public abstract boolean redimensionar(Tamanho tamanhoTelaDispositivo, Double porcentagem); 
+    
+    //-------------------- redimensionamento igualitário
+    public Double redimensionar(Boolean altura, Boolean largura, Tamanho tamanhoTelaDispositivo, Double porcentagem) {
+        if(altura) {
+            return this.redimensionarAltura(tamanhoTelaDispositivo, porcentagem);
+        }
+        if(largura) {
+            return this.redimensionarAltura(tamanhoTelaDispositivo, porcentagem);
+        }
+        return null;
+    }
    
     public Double redimensionarAltura(Tamanho tamanhoTelaDispositivo, Double porcentagem) {
         String keyTelaDispositivo = tamanhoTelaDispositivo.getAltura() + ":" + tamanhoTelaDispositivo.getLargura();
@@ -129,19 +154,9 @@ public abstract class ItemConteudo {
             Double larguraAtual = this.tamanhoExibicaoAtual.getLargura();
             Double larguraReducao = larguraAtual * (porcentagem/100);
             this.tamanhoExibicaoAtual.setLargura(larguraAtual-larguraReducao);
+            return larguraReducao;
         }
         return null;
     }
-    
-    public ItemConteudo(String tipo, Tamanho tamanho, Cor cor, String valor) {
-        this.tipo = tipo;
-        this.tamanho = tamanho;
-        this.cor = cor;
-        this.valor = valor;
-        
-        tamanhoMinimo = new HashMap<String,Tamanho>();
-        tamanhoExibicaoAtual = new Tamanho(this.tamanho.getAltura(), this.tamanho.getLargura());
-        this.calcularTamanhoMinimo();
-    }
-
+    //--------------------
 }
