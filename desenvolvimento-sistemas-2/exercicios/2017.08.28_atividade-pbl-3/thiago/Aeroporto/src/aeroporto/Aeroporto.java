@@ -49,7 +49,7 @@ public class Aeroporto {
     }
     
     public boolean adicionarAviaoNoPatio(Aviao aviao){
-        if(avioesPatio.size() < 100){
+        if(avioesPatio.size() <= 100){
             avioesPatio.add(aviao);
             return true;
         }
@@ -62,13 +62,13 @@ public class Aeroporto {
     }
     
     public boolean adicionaVoo(Aeroporto aeroporto, Aviao aviao){
-        if(voos.size()){
+        if(voos.size() <= 100){
             Voo voo = new Voo(aeroporto, this, aviao);
             voos.add(voo);
             return true;
         }
         
-        return false
+        return false;
     }
 
     public ArrayList<Voo> getVoos() {
@@ -109,12 +109,18 @@ public class Aeroporto {
     public static ArrayList metodoDeChegada(Aeroporto aeroportoOrigem, Aeroporto aeroportoDestino){
         ArrayList<Aeroporto> escala = new ArrayList<>();
         
-        for(int i = 0; i < aeroportoOrigem.voos.size(); i++){
-                
-        }
-        
         escala.add(aeroportoOrigem);
 
+        for(int i = 0; i < aeroportoOrigem.voos.size(); i++){
+            for(int j = 0; j < aeroportoOrigem.voos.get(i).getDestino().voos.size(); j++){
+                if(aeroportoOrigem.voos.get(i).getDestino().voos.get(j).getDestino().getCodigo() == aeroportoDestino.getCodigo()){
+                    escala.add(aeroportoOrigem.voos.get(i).getDestino().voos.get(j).getOrigem());
+                }
+            }
+        }
+        
+        escala.add(aeroportoDestino);
+        
         return escala;
     } 
 }
