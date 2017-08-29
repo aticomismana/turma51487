@@ -59,11 +59,11 @@ public class TesteDispositivo {
         // criação de dispositivos
         //----------------------------------------------------------------------
         Desktop desktop = new Desktop(telaDesktop, "Desktop");
-        dispositivosLista.add(desktop);
+        //dispositivosLista.add(desktop);
         Notebook notebook = new Notebook(telaNotebook, "Notebook");
-        dispositivosLista.add(notebook);
+        //dispositivosLista.add(notebook);
         Tablet tablet = new Tablet(telaTablet, "Tablet");
-        dispositivosLista.add(tablet);
+        //dispositivosLista.add(tablet);
         Smartphone smartphone = new Smartphone(telaSmartphone, "Smartphone");
         dispositivosLista.add(smartphone);
         //----------------------------------------------------------------------    
