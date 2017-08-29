@@ -4,7 +4,7 @@ public class Tamanho {
     private Double altura;
     private Double largura;
     
-    public Tamanho (Double altura, Double largura) {
+    public Tamanho(Double altura, Double largura) {
         this.altura = altura;
         this.largura = largura;
     }
@@ -25,14 +25,9 @@ public class Tamanho {
         this.largura = largura;
     }
 
-    Tamanho get(String key) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+        return super.equals(obj);
     }
-    
-    
+       
 }

@@ -6,12 +6,15 @@ public class ArquivoHTML {
     private final ArrayList<ItemConteudo> conteudo;
     private String nome;
     
-    public Boolean adicionarConteudo(ItemConteudo conteudo) {       //TODO alterar diagrama
-        this.conteudo.add(conteudo);
-        return true;    //TODO o add ja retorna true??
+    public Boolean adicionarConteudo(ItemConteudo conteudo) {
+        // metodo add ja retorna um boolean
+        return this.conteudo.add(conteudo);
+
+        //this.conteudo.add(conteudo);
+        //return true;
     }
     
-    public ArrayList<ItemConteudo> getConteudo() {     //TODO alterar diagrama
+    public ArrayList<ItemConteudo> getConteudo() {
         return this.conteudo;
     }
     
@@ -23,5 +26,4 @@ public class ArquivoHTML {
     public String getNome() {
         return nome;
     }
-  
 }

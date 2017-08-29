@@ -1,17 +1,18 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Dispositivo {
     private Tela tela;
-    private ArrayList<ArquivoHTML> arquivosHTML;    //TODO alter diagrama
+    private ArrayList<ArquivoHTML> arquivosHTML;
     private String tipo;
 
-    protected void adicionarArquivoHTML(ArquivoHTML arquivoHTML){ //TODO alter diagrama
-        this.arquivosHTML.add(arquivoHTML);
+    protected boolean adicionarArquivoHTML(ArquivoHTML arquivoHTML){
+        return this.arquivosHTML.add(arquivoHTML);
     }
     
-    public void exibirArquivoHTML(ArquivoHTML arquivoHTML){ //TODO alter diagrama
+    public void exibirArquivoHTML(ArquivoHTML arquivoHTML){
         // chama metodo de renderização
         this.renderizarArquivoHTML(arquivoHTML);
         
@@ -69,18 +70,13 @@ public abstract class Dispositivo {
                 }
             }
         }
-        
     }
 
-    //não foi possivel reproduzir o metodo como abstrato na modelagem proposta (diferente do escopo inicial)
-    //protected abstract void renderizarArquivoHTML(ArquivoHTML arquivoHTML);
-    
-    //TODO URGENTE
-    private void renderizarArquivoHTML(ArquivoHTML arquivoHTML) {      //TODO alter diagrama
+    private void renderizarArquivoHTML(ArquivoHTML arquivoHTML) {
         Double porcentagemRedimensionamento = 1D;
         
-        Double alturaTotalConteudos = 0D;      // nao retorna o valor, retorna o objeto
-        Double larguraTotalConteudos = 0D;    // nao retorna o valor, retorna o objeto
+        Double alturaTotalConteudos = 0D;
+        Double larguraTotalConteudos = 0D;
         
         // itera os itens do conteudo do arquivo
         for(ItemConteudo itemConteudo : arquivoHTML.getConteudo()) {
@@ -98,20 +94,18 @@ public abstract class Dispositivo {
                 + larguraTotalConteudos
         );
         
-        int qtdConteudosARedimensionar = arquivoHTML.getConteudo().size();
-        
-        // necessário para re-iniciar o loop
-        int cicloCompletoDeConteudos = arquivoHTML.getConteudo().size();
+        // clona a lista - pq clona?
+        List<ItemConteudo> conteudoARedimensionarList = (List<ItemConteudo>) arquivoHTML.getConteudo().clone();
         int contador=0;
         
-        while( (alturaTotalConteudos > this.getTela().getTamanho().getAltura() &&
+        while( (alturaTotalConteudos > this.getTela().getTamanho().getAltura() ||
                 larguraTotalConteudos > this.getTela().getTamanho().getLargura() ) &&
-                qtdConteudosARedimensionar > 0) {
+                conteudoARedimensionarList.size() > 0) {
             
-            System.out.println("alturaTotal: " + alturaTotalConteudos + " larguraTotal: " + larguraTotalConteudos);
+            //System.out.println("alturaTotal: " + alturaTotalConteudos + " larguraTotal: " + larguraTotalConteudos);
             
             // renderizar objeto
-            ItemConteudo itemConteudo = arquivoHTML.getConteudo().get(contador);
+            ItemConteudo itemConteudo = conteudoARedimensionarList.get(contador);
             Double alturaConteudoAtual = itemConteudo.getTamanhoExibicaoAtual().getAltura();
             Double larguraConteudoAtual = itemConteudo.getTamanhoExibicaoAtual().getLargura();
             
@@ -124,34 +118,20 @@ public abstract class Dispositivo {
             
             if(reducaoAlturaConteudoAtual != null) {
                 alturaTotalConteudos -= reducaoAlturaConteudoAtual;
-                //tamanhoConteudo.setAltura(alturaTotalConteudos);      // nao precisa
             }
             
             if(reducaoLarguraConteudoAtual != null) {
                 larguraTotalConteudos -= reducaoLarguraConteudoAtual;
-                //tamanhoConteudo.setLargura(larguraTotalConteudos);      // nao precisa
             }
             
-            if(reducaoAlturaConteudoAtual != null && reducaoLarguraConteudoAtual != null) {
+            if(reducaoAlturaConteudoAtual == null && reducaoLarguraConteudoAtual == null) {
                 // se nao redimensionar, ou seja, tamanhoMinimo do conteudo ja atingido, subtrai no contador
                 // TODO implementar uma lista com o indice dos conteudos a ainda serem alterados e iterar eles somente
-                qtdConteudosARedimensionar--;
+                conteudoARedimensionarList.remove(contador);
             }
             
-//            //if (!arquivoHTML.getConteudo().get(contador).redimensionar(this.getTela().getTamanho(), porcentagemRedimensionamento)) {
-//            if(itemConteudo.redimensionar(this.getTela().getTamanho(), porcentagemRedimensionamento)) {
-//                alturaTotalConteudos -= alturaConteudoAtual*(porcentagemRedimensionamento/100);
-//                //tamanhoConteudo.setAltura(alturaTotalConteudos);      // nao precisa
-//                larguraTotalConteudos -= larguraConteudoAtual*(porcentagemRedimensionamento/100);
-//                //tamanhoConteudo.setLargura(larguraTotalConteudos);      // nao precisa
-//            } else {
-//                // se nao redimensionar, ou seja, tamanhoMinimo do conteudo ja atingido, subtrai no contador
-//                qtdConteudosARedimensionar--;
-//                //System.out.println("qtdConteudosARedimensionar: " + qtdConteudosARedimensionar);
-//            }
-            
             // incrementa contador de arquivos
-            if(contador==cicloCompletoDeConteudos-1) {
+            if(contador==conteudoARedimensionarList.size()-1) {
                 contador=0;
             } else {
                 contador++;
