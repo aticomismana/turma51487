@@ -54,9 +54,11 @@ function editarTabela(indice){
   $("#nota-"+indice).hide();
   $("#editar-"+indice).prop("disabled",true);
 
+  $("#inputdescricao-"+indice).val($("#descricao-"+indice).text());
   $("#inputdescricao-"+indice).show();
-  $("#concluir-"+indice).show();
+  $("#inputnota-"+indice).val($("#nota-"+indice).text());
   $("#inputnota-"+indice).show();
+  $("#concluir-"+indice).show();
 }
 
 function concluirEdicao(indice){
@@ -100,7 +102,7 @@ function calculaMedia(){
   $('#media').text('Media: ' + valor.toFixed(2) )
 
 
-  if(media >= 7){
+  if(valor >= 7){
     $("#aprovado").show();
     $("#reprovado").hide();
   } else {

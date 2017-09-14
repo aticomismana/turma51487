@@ -1,0 +1,22 @@
+/* Footer */
+
+footer{
+    background-color: #eee;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    text-align: center;
+    color: #424558;
+}
+
+footer p {
+    padding: 10.5px;
+    margin: 0px;
+    line-height: 100%;
+}
+
+footer a {
+  color:#0a93a6;
+  text-decoration:none;
+}
