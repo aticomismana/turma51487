@@ -7,6 +7,7 @@
     <script type="text/javascript" src="./index.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
 
@@ -24,7 +25,7 @@
     </div>
       <div class="col-sm-9">
         <center>
-          <h1>Formulario de contatos</h1>
+          <h1>Formulario de notas</h1>
         </center>
         <form action="http://10.1.0.124:3009/contatos" method="post">
           <div class="form-group">
@@ -36,15 +37,15 @@
             <input type="email" name="email" class="form-control" required>
           </div>
           <div class="form-group">
-            <label for="idade">Idade</label>
-            <input type="number" name="idade" class="form-control" required min="1">
+            <label for="escola">Nome da escola</label>
+            <input type="text" name="escola" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="senha">Senha</label>
             <input type="password" name="senha" class="form-control" required>
           </div>
           <div class="form-group">
-            <label for="data">Data</label>
+            <label for="data">Data de nascimento</label>
             <input type="date" name="data" class="form-control datepicker" required>
           </div>
           <div class="row">
@@ -88,7 +89,6 @@
             </tfoot>
           </table>
 
-          <br>
           <hr>
 
           <center>
@@ -97,6 +97,11 @@
         </form>
       </div>
     </div>
+    <hr>
+
+    <footer>
+        <p>© 2017<a href="https://github.com/thiagoN13"> Thiago Nogueira</a>, Turma 51487.</p>
+    </footer>
   </body>
   <script type="text/javascript">
     $("#aprovado").hide();
