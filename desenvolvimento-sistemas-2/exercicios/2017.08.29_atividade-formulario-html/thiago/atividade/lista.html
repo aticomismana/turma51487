@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atividade</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="./websql.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+
+    <div class="jumbotron">
+        <h1 class="display-3">Desenvolvimento de sistemas</h1>
+      </div>
+    </div>
+    <div class="container-fluid">
+
+    <div class="col-sm-3 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Lista de alunos</a></li>
+        <li><a href="index.html">Formulario</a></li>
+      </ul>
+    </div>
+      <div class="col-sm-9">
+        <center>
+          <h1>Lista de alunos</h1>
+        </center>
+        <table class="table table-hover" id="tabela-alunos">
+          <thead>
+            <tr>
+              <th>Nome do aluno</th>
+              <th>Escola</th>
+              <th>Data de nascimento</th>
+              <th>Email</th>
+              <th>Remover</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr>
+
+    <footer>
+        <p>© 2017<a href="https://github.com/thiagoN13"> Thiago Nogueira</a>, Turma 51487.</p>
+    </footer>
+  </body>
+  <script type="text/javascript">
+    $("#aprovado").hide();
+  </script>
+</html>
+
+
+
+<div class="modal fade" id="alerta">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title text-danger"> Erro!</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top:-40px">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Não foi possivel adicionar a tabela, dados inválidos.</p>
+        <p class="text-danger">Verifique se os campos estão prenchidos e se a nota for entre 0 a 10</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
