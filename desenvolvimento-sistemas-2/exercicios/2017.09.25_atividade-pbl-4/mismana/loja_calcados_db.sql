@@ -135,6 +135,8 @@ CREATE UNIQUE INDEX `pessoa_cliente_UNIQUE` ON `loja_calcados_db`.`cliente` (`co
 CREATE TABLE IF NOT EXISTS `loja_calcados_db`.`produto` (
   `cod_produto` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
+  `cod_identificador` VARCHAR(60) NOT NULL,
+  `cod_barras` INT NOT NULL,
   `valor` FLOAT NOT NULL,
   PRIMARY KEY (`cod_produto`))
 ENGINE = InnoDB;
