@@ -29,9 +29,12 @@ CREATE UNIQUE INDEX `pessoa_cpf_UNIQUE` ON `loja_calcados_db`.`pessoa` (`cpf` AS
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja_calcados_db`.`funcao` (
   `cod_funcao` INT NOT NULL AUTO_INCREMENT,
+  `codigo` INT NOT NULL,
   `nome` VARCHAR(60) NOT NULL,
   PRIMARY KEY (`cod_funcao`))
 ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `funcao_codigo_UNIQUE` ON `loja_calcados_db`.`funcao` (`codigo` ASC);
 
 CREATE UNIQUE INDEX `funcao_nome_UNIQUE` ON `loja_calcados_db`.`funcao` (`nome` ASC);
 
@@ -41,9 +44,12 @@ CREATE UNIQUE INDEX `funcao_nome_UNIQUE` ON `loja_calcados_db`.`funcao` (`nome` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja_calcados_db`.`nivel` (
   `cod_nivel` INT NOT NULL AUTO_INCREMENT,
+  `codigo` INT NOT NULL,
   `nome` VARCHAR(60) NOT NULL,
   PRIMARY KEY (`cod_nivel`))
 ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `nivel_codigo_UNIQUE` ON `loja_calcados_db`.`nivel` (`codigo` ASC);
 
 CREATE UNIQUE INDEX `nivel_nome_UNIQUE` ON `loja_calcados_db`.`nivel` (`nome` ASC);
 
@@ -82,6 +88,7 @@ CREATE TABLE IF NOT EXISTS `loja_calcados_db`.`colaborador` (
   `cod_pessoa` INT NOT NULL,
   `cod_funcao` INT NOT NULL,
   `cod_nivel` INT NOT NULL,
+  `cod_matricula` INT NOT NULL,
   `data_admissao` DATE NOT NULL,
   PRIMARY KEY (`cod_colaborador`),
   CONSTRAINT `fk_colaborador_pessoa1`
@@ -100,6 +107,8 @@ CREATE TABLE IF NOT EXISTS `loja_calcados_db`.`colaborador` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `colaborador_matricula_UNIQUE` ON `loja_calcados_db`.`colaborador` (`cod_matricula` ASC);
 
 CREATE UNIQUE INDEX `pessoa_funcao_nivel_admissao_UNIQUE` ON `loja_calcados_db`.`colaborador` (`cod_pessoa` ASC,
 	`cod_funcao` ASC, `cod_nivel` ASC, `data_admissao` ASC);
@@ -199,9 +208,12 @@ CREATE UNIQUE INDEX `venda_produto_UNIQUE` ON `loja_calcados_db`.`item_venda` (`
 
 CREATE TABLE IF NOT EXISTS `loja_calcados_db`.`rubrica` (
   `cod_rubrica` INT NOT NULL AUTO_INCREMENT,
+  `codigo` INT NOT NULL,
   `nome` VARCHAR(60) NOT NULL,
   PRIMARY KEY (`cod_rubrica`))
 ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `rubrica_codigo_UNIQUE` ON `loja_calcados_db`.`rubrica` (`codigo` ASC);
 
 CREATE UNIQUE INDEX `rubrica_nome_UNIQUE` ON `loja_calcados_db`.`rubrica` (`nome` ASC);
 
