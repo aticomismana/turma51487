@@ -13,10 +13,10 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author davii
  */
-public class DiretorTableModel extends AbstractTableModel{
+public class DiretorTableModel extends AbstractTableModel {
 
     private List<Diretor> diretores = new ArrayList<>();
-    private String[] colunas = {"Nome", "Cpf", "Salario"};
+    private String[] colunas = {"ID","Nome", "Cpf", "Salario"};
 
     @Override
     public String getColumnName(int column) {
@@ -37,10 +37,12 @@ public class DiretorTableModel extends AbstractTableModel{
     public Object getValueAt(int linha, int coluna) {
         switch(coluna){
             case 0:
-                return diretores.get(linha).getNome();
+                return diretores.get(linha).getId();
             case 1:
-                return diretores.get(linha).getCpf();
+                return diretores.get(linha).getNome();
             case 2:
+                return diretores.get(linha).getCpf();
+            case 3:
                 return diretores.get(linha).getSalario();
         }
         return null;
@@ -50,12 +52,14 @@ public class DiretorTableModel extends AbstractTableModel{
     public void setValueAt(Object valor, int linha, int coluna) {
         switch(coluna){
             case 0:
+                diretores.get(linha).setId(Integer.parseInt((String) valor));
+            case 1:
                 diretores.get(linha).setNome((String) valor);
                 break;
-            case 1:
+            case 2:
                 diretores.get(linha).setCpf(Integer.parseInt((String) valor));
                 break;
-            case 2:
+            case 3:
                 diretores.get(linha).setSalario(Double.parseDouble((String) valor));
                 break;
         }
@@ -67,7 +71,7 @@ public class DiretorTableModel extends AbstractTableModel{
         this.fireTableDataChanged();
     }
     
-    public void removoRow(int linha){
+    public void removeRow(int linha){
         this.diretores.remove(linha);
         this.fireTableRowsDeleted(linha, linha);
     }

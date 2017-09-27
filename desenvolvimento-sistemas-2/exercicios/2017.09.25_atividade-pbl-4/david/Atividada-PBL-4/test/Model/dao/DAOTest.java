@@ -25,7 +25,7 @@ public class DAOTest {
     @Ignore
     public void inserir() {
         Diretor dir = new Diretor("david", 111, 1500.00);
-        DAO dao01 = new DAO();
+        DiretorDAO dao01 = new DiretorDAO();
         
         if(dao01.createDir(dir)){
             System.out.println("Salvo com sucesso!");
@@ -38,7 +38,7 @@ public class DAOTest {
     @Ignore
     public void listar(){
     
-        DAO dao01 = new DAO();
+        DiretorDAO dao01 = new DiretorDAO();
         
         for(Diretor d: dao01.buscarDir()){
             System.out.println("Nome: " + d.getNome()
@@ -52,7 +52,7 @@ public class DAOTest {
         Diretor dir = new Diretor();
         dir.setId(1);
         
-        DAO dao01 = new DAO();
+        DiretorDAO dao01 = new DiretorDAO();
         
         if(dao01.deleteDir(dir)){
             System.err.println("Deletado com sucesso");
@@ -66,7 +66,7 @@ public class DAOTest {
     public void atualizar() {
         Diretor dir = new Diretor("davi", 11, 1000.00);
         dir.setId(1);
-        DAO dao01 = new DAO();
+        DiretorDAO dao01 = new DiretorDAO();
         
         if(dao01.updateDir(dir)){
             System.out.println("Atualizado com sucesso!");

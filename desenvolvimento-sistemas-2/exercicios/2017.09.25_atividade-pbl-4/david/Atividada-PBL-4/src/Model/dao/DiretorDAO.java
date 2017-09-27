@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -21,11 +22,11 @@ import javax.swing.JOptionPane;
  *
  * @author davii
  */
-public class DAO {
+public class DiretorDAO {
     
     private Connection con = null;
     
-    public DAO(){
+    public DiretorDAO(){
         con = ConnectionFactory.getConnection();
     }
     
@@ -106,6 +107,7 @@ public class DAO {
             while(rs.next()){
                 Diretor dir = new Diretor();
                 
+                dir.setId(rs.getInt("id_diretor"));
                 dir.setNome(rs.getString("nome"));
                 dir.setCpf( rs.getInt("cpf"));
                 dir.setSalario(rs.getDouble("salario"));
@@ -176,7 +178,7 @@ public class DAO {
     
     public boolean updateDir(Diretor dir){
         
-        String sql = "UPDATE diretor SET (nome, cpf, salario) VALUES (?,?,?) WHERE id_diretor = ?; ";
+        String sql = "UPDATE diretor SET nome = ?, cpf = ?, salario = ? WHERE id_diretor = ?; ";
         PreparedStatement stmt = null;
         
         try {
@@ -196,9 +198,56 @@ public class DAO {
         }
     }
     
+    public boolean calcularBonificacaoDir(Diretor dir){
+        
+        String sql = "SELECT salario = ? FROM diretor WHERE id_diretor = ?; ";
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setDouble(1, dir.getSalario());
+            stmt.setInt(2, dir.getId());
+            stmt.executeQuery();
+            DecimalFormat decimal = new DecimalFormat("0.00");
+            String valorFormatado = decimal.format(dir.calcularBonificacao());
+            JOptionPane.showConfirmDialog(null, "A bonificação do Diretor: "+ dir.getNome()+ " é de -> " + valorFormatado + "!");
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showConfirmDialog(null, "Error ao calcular: " + ex);
+            return false;
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    public boolean calcularComissaoDir(Diretor dir){
+        
+        String sql = "SELECT salario = ? FROM diretor WHERE id_diretor = ?; ";
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setDouble(1, dir.getSalario());
+            stmt.setInt(2, dir.getId());
+            stmt.executeQuery();
+            
+            double venda = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o valor da venda."));
+            
+            DecimalFormat decimal = new DecimalFormat("0.00");
+            String valorFormatado = decimal.format(dir.calcularComissao(venda));
+            
+            JOptionPane.showConfirmDialog(null, "A comissão do Diretor: "+ dir.getNome()+ " é de -> " + valorFormatado + "!");
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showConfirmDialog(null, "Error ao calcular: " + ex);
+            return false;
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
     public boolean updateCom(Comissionado com){
         
-        String sql = "UPDATE comissionado SET (nome, cpf, salario, tempo_empresa) VALUES (?,?,?,?) WHERE id_comissionado = ?; ";
+        String sql = "UPDATE diretor SET nome = ?, cpf = ?, salario = ?, tempo_empresa = ? WHERE id_diretor = ?; ";
         PreparedStatement stmt = null;
         
         try {
@@ -220,7 +269,7 @@ public class DAO {
     
     public boolean updateAux(Auxiliar aux){
         
-        String sql = "UPDATE auxiliar SET (nome, cpf, salario, tempo_contraro) VALUES (?,?,?,?) WHERE id_auxiliar = ?; ";
+        String sql = "UPDATE diretor SET nome = ?, cpf = ?, salario = ?, tempo_contrato = ? WHERE id_diretor = ?; ";
         PreparedStatement stmt = null;
         
         try {
@@ -249,9 +298,10 @@ public class DAO {
             stmt = con.prepareStatement(sql);
             stmt.setInt (1, dir.getId());
             stmt.executeUpdate();
+            JOptionPane.showConfirmDialog(null, "Deletado com sucesso!");
             return true;
         } catch (SQLException ex) {
-            System.err.println("Error!"+ ex);
+            JOptionPane.showConfirmDialog(null, "Error ao deletar!" + ex);
             return false;
         }finally{
             ConnectionFactory.closeConnection(con, stmt);
