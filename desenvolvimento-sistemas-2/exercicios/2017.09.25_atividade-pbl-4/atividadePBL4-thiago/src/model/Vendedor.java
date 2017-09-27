@@ -15,9 +15,14 @@ public class Vendedor {
     private String cpf;
     private Double salario;
     private int mesesContrato;
+    private String tipo_vendedor;
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setTipoVendedor(String tipo_vendedor) {
+        this.tipo_vendedor = tipo_vendedor;
     }
 
     public int getId() {
@@ -26,6 +31,10 @@ public class Vendedor {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public String getTipoVendedor() {
+        return tipo_vendedor;
     }
 
     public String getNome() {
@@ -55,6 +64,6 @@ public class Vendedor {
     public void setSalario(Double salario) {
         this.salario = salario;
     }
-    
-    
+
+
 }
