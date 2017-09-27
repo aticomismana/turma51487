@@ -26,7 +26,7 @@ public class Auxiliar extends Vendedor {
         if(this.getMesesContrato() > 12){
             double bonificaoao = this.getSalario() * 0.02;
         
-            this.setSalario(bonificaoao);
+            this.setSalario(this.getSalario() + bonificaoao);
         }
     }
 }
