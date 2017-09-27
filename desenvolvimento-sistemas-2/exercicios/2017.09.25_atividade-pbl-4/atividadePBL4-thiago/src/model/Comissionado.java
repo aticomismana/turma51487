@@ -11,17 +11,17 @@ package model;
  */
 public class Comissionado extends Vendedor {
     
-    public double calculaComissao(double valorCompra){
+    public void calculaComissao(double valorCompra){
         double comissao = valorCompra * 0.15;
         
-        return comissao;
+        this.setSalario(this.getSalario() + comissao);
     }
     
     public void concederBonificacao(){
         if(this.getMesesContrato() > 12){
             double bonificaoao = this.getSalario() * 0.05;
         
-            this.setSalario(bonificaoao);
+            this.setSalario(this.getSalario() + bonificaoao);
         }
     }
 }

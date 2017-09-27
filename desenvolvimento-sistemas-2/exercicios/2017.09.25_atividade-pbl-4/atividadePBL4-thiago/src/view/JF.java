@@ -36,7 +36,7 @@ public class JF extends javax.swing.JFrame {
         salario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         tipo_funcionario = new javax.swing.JComboBox<>();
-        mesesContratado2 = new javax.swing.JTextField();
+        mesesContratado = new javax.swing.JTextField();
         botaoRetornar = new javax.swing.JButton();
 
         mesesContratado1.setText("Meses de contratado");
@@ -75,7 +75,12 @@ public class JF extends javax.swing.JFrame {
             }
         });
 
-        mesesContratado2.setText("Meses de contratado");
+        mesesContratado.setText("Meses de contratado");
+        mesesContratado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mesesContratadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,7 +95,7 @@ public class JF extends javax.swing.JFrame {
                             .addComponent(nome)
                             .addComponent(salario)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(mesesContratado2)
+                                .addComponent(mesesContratado)
                                 .addGap(18, 18, 18)
                                 .addComponent(valor_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -119,7 +124,7 @@ public class JF extends javax.swing.JFrame {
                 .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mesesContratado2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mesesContratado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(valor_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(salario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,14 +146,13 @@ public class JF extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(55, 55, 55)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botaoRetornar)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                    .addComponent(botaoRetornar))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,6 +182,10 @@ public class JF extends javax.swing.JFrame {
     private void botaoRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRetornarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoRetornarActionPerformed
+
+    private void mesesContratadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesesContratadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesesContratadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,8 +228,8 @@ public class JF extends javax.swing.JFrame {
     public javax.swing.JTextField cpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JTextField mesesContratado;
     public javax.swing.JTextField mesesContratado1;
-    public javax.swing.JTextField mesesContratado2;
     public javax.swing.JTextField nome;
     public javax.swing.JTextField salario;
     public javax.swing.JComboBox<String> tipo_funcionario;

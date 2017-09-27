@@ -11,15 +11,15 @@ package model;
  */
 public class Diretor extends Vendedor {
    
-     public double calculaComissao(double valorCompra){
+     public void calculaComissao(double valorCompra){
         double comissao = valorCompra * 0.05;
         
-        return comissao;
+        this.setSalario(this.getSalario() + comissao);
     }
      
     public void concederBonificacao(){
         double bonificaoao = this.getSalario() * 0.10;
         
-        this.setSalario(bonificaoao);
+        this.setSalario(this.getSalario() + bonificaoao);
     }
 }

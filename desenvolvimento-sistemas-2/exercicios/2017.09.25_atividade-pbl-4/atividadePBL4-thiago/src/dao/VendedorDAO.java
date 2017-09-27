@@ -53,7 +53,7 @@ public class VendedorDAO {
                 vendedor.setId(rs.getInt("id"));
                 vendedor.setNome(rs.getString("nome"));
                 vendedor.setCpf(rs.getString("cpf"));
-                vendedor.setSalario(10.00);
+                vendedor.setSalario(rs.getDouble("salario"));
                 vendedor.setMesesContrato(rs.getInt("mesesContratado"));
                 listaVendedores.add(vendedor);
             }
@@ -78,9 +78,9 @@ public class VendedorDAO {
         }
     }
     
-    public void eliminarPessoa(int id){
+    public void eliminarVendedor(int id){
         try{
-            String sql = "delete funcionario where id=?";
+            String sql = "DELETE FROM vendedor WHERE id=?";
             Connection conexaobd = conexao.getConnection();
             PreparedStatement ps = (PreparedStatement) conexaobd.prepareStatement(sql);
             ps.setInt(1, id);
