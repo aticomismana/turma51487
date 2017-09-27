@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/semantic.css">
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../js/semantic.js"></script>
+    <title>Semantic-Ui</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="ui secondary pointing menu">
+      <a class="item" href="../index.html">
+        Início
+      </a>
+      <a class="item active" href="./tutorial.html">
+        Componentes
+      </a>
+      <a class="item" href="./home.html">
+        Aplicação
+      </a>
+    </div>
+    <!-- Fim do navbar -->
+    <div class="ui container">
+      <h1 class="ui center aligned header"><a href="https://semantic-ui.com">Semantic UI</a></h1>
+      <!-- Header -->
+      <div class="row">
+        <div class="ui message">
+          <div class="header">
+            Descricao do framework
+          </div>
+          <p>O semantic UI é um framework voltado para semântica, para melhorar a legibilidade do código e a fácil utilização do usuário.</p>
+          <p>Com classes voltadas ao mundo real.</p>
+          <div class="header">
+            Instalar o Semantic UI
+          </div>
+          <!-- Tutorial de instalacao -->
+          <ul class="list">
+            <li>Você pode baixar usando o <a href="https://semantic-ui.com">semantic UI</a> do pacote NPM, mas é necessário que instale o GULP para compilar o arquivo</li>
+            <li>
+              <p>O Gulp roda no <a href="http://nodejs.org/">nodejs</a> então é preciso que você o tenha instalado no seu computador, caso esteja tudo ok, basta rodar o comando abaixo na sua linha de comando para instalar o CLI:</p>
+              <p><b>Gulp é um módulo NPM e deve ser instalado globalmente</b></p>
+              <div class="ui existing segment">
+                <pre>
+                  <code class="ignored code lang-javascript hljs">
+                    <span>npm install -g gulp</span>
+                  </code>
+                </pre>
+              </div>
+            </li>
+            <li>Instale o semantic UI através do pacote NPM
+
+              <div class="ui existing segment">
+                <pre>
+                  <code class="ignored code lang-javascript hljs">
+                    <span>
+                      npm install semantic-ui --save
+                      cd semantic/
+                      gulp build
+                    </span>
+                  </code>
+                </pre>
+              </div>
+              <a href="https://asciinema.org/a/22121/embed?">Clique aqui</a> e assista o video oficial de instalação do <a href="https://semantic-ui.com">semantic UI</a> utilizando o NPM
+            </li>
+            <div class="ui horizontal divider">
+              Ou
+            </div>
+            <li>Baixe o framework semantic UI já compilado. <a href="https://github.com/Semantic-Org/Semantic-UI-CSS/archive/master.zip">
+              Clique aqui para baixar</a>
+            </li>
+            <div class="ui horizontal divider">-</div>
+            <li> Insira no head do seu html
+              <div class="ui existing segment">
+                <pre>
+                  <code class="ignored code html">
+                    <span>&lt;link rel="stylesheet" type=text/css" href="semantic/dist/semantic.min.css"&gt;</span>
+                    <span>&lt;script src="https://code.jquery.com/jquery-3.1.1.min.js"&gt;&lt;/script&gt;</span>
+                    <span>&lt;script src="semantic/dist/semantic.min.js"&gt;&lt;/script&gt;</span>
+                  </code>
+                </pre>
+              </div>
+            </li>
+          </ul>
+          <!-- Fim do tutorial de instalacao -->
+        </div>
+      </div>
+      <!-- Fim do header -->
+    </div>
+  </body>
+</html>

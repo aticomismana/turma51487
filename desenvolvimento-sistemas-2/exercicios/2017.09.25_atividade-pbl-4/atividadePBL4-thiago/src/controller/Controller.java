@@ -34,19 +34,19 @@ public class Controller implements ActionListener, KeyListener{
             String salario = viewCRUD.salario.getText();
             int valor_compra = Integer.parseInt(viewCRUD.valor_compra.getText());
             String mesesContratado = viewCRUD.mesesContratado.getText();
-            String tipo_funcionario = viewCRUD.tipo_funcionario.getSelectedItem();
-            if(tipo_funcionario == "comissionado"){
+            String tipo_funcionario = viewCRUD.tipo_funcionario.getSelectedItem().toString();
+            if("comissionado".equals(tipo_funcionario)){
                 Comissionado comissionado = new Comissionado();
                 comissionado.setSalario(Double.parseDouble(salario));
                 comissionado.setMesesContrato(Integer.parseInt(mesesContratado));
                 comissionado.calculaComissao(valor_compra);
                 comissionado.concederBonificacao();
                 vendedor.insereVendedor(nome, comissionado.getSalario().toString(), mesesContratado, cpf, tipo_funcionario);
-            } else if(tipo_funcionario == "diretor"){
+            } else if("diretor".equals(tipo_funcionario)){
                 Diretor diretor = new Diretor();
                 diretor.setSalario(Double.parseDouble(salario));
                 vendedor.insereVendedor(nome, diretor.getSalario().toString(), mesesContratado, cpf, tipo_funcionario);
-            } else if(tipo_funcionario == "auxiliar"){
+            } else if("auxiliar".equals(tipo_funcionario)){
                 Auxiliar auxiliar = new Auxiliar();
                 auxiliar.setSalario(Double.parseDouble(salario));
                 auxiliar.setMesesContrato(Integer.parseInt(mesesContratado));

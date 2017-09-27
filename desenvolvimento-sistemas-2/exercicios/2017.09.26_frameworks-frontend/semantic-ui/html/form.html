@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/semantic.css">
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../js/semantic.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/websql.js"></script>
+    <title>Semantic-Ui</title>
+  </head>
+  <body>
+    <div class="ui secondary pointing menu">
+      <a href="#" class="header item">
+        <img class="logo" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Tomboy_logo.svg/2000px-Tomboy_logo.svg.png">
+          SGA
+      </a>
+      <a href="./home.html" class="item active">Início</a>
+      <a href="./form.html" class="item">Novo aluno</a>
+    </div>
+
+    <div class="ui container">
+      <form id="form-aluno" onsubmit="submeterFormulario()" class="ui form">
+        <div class="row">
+          <center>
+            <hr>
+            <strong>Dados pessoais</strong>
+            <hr>
+          </center>
+        </div>
+        <div class="ui two column vertically padded grid">
+          <div class="column">
+            <div class="field">
+              <label>Nome</label>
+              <input type="text" name="nome" id="nome" required>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label>Email</label>
+              <input type="email" name="email" id="email" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Nome da escola</label>
+          <input type="text" name="escola" id="escola" required>
+        </div>
+        <div class="field">
+          <label>Senha</label>
+          <input type="password" name="senha" id="senha" required>
+        </div>
+        <div class="field">
+          <label>Data de nascimento</label>
+          <input type="date" name="data" id="data_nascimento" required>
+        </div>
+
+        <div class="row">
+          <center>
+            <hr>
+            <strong>Avaliação do aluno</strong>
+            <hr>
+          </center>
+          <div class="ui three column vertically padded grid">
+            <div class="nine wide column">
+              <div class="field">
+                <label>Descrição</label>
+                <input type="text" name="descricao" id="descricao">
+              </div>
+            </div>
+            <div class="two wide column">
+              <div class="field">
+                <label>Nota</label>
+                <input type="number" name="nota" min="0" max="10" id="nota">
+              </div>
+            </div>
+            <div class="two wide column">
+              <button type="button" name="button" class="ui button primary" style="margin-top:25px" onClick="adicionarTabela()">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <table class="ui table selectable striped" id="tabela">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Nota</th>
+              <th>Editar</th>
+              <th>Remover</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+          <tfoot class="full-width">
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>
+                <strong id="media">Media: 0.00</strong>
+                <hr>
+                <p class="ui green tag label" id="aprovado">Aprovado</p>
+                <p class="ui red tag label" id="reprovado">Reprovado</p>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+
+        <hr>
+
+        <center>
+          <button type="buttom" onClick="submeterFormulario()" name="button" class="ui small button primary">Enviar</button>
+        </center>
+      </form>
+    </div>
+
+    <script type="text/javascript">
+      $("#aprovado").hide();
+    </script>
+  </body>
+</html>

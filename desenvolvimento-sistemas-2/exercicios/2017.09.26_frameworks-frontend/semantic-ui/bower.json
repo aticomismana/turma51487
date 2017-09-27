@@ -1,0 +1,17 @@
+{
+  "name": "Apresentacao framework front-end",
+  "authors": [
+    "thiago_n13 <thiago.nogueira187@gmail.com>"
+  ],
+  "description": "Apresentacao sobre o framework semantic-Ui",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
