@@ -44,7 +44,7 @@ public class Auxiliar extends Diretor{
     }
 
     @Override
-    public double bonificacao(){
+    public double calcularBonificacao(){
         double bonificacao = 0;
         if(this.getTempoContrato() >= 12){
             bonificacao = (this.getSalario()*12)*0.2;

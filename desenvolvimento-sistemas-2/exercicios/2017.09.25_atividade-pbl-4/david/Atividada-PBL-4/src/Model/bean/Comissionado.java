@@ -37,7 +37,7 @@ public class Comissionado extends Diretor{
     }
 
     @Override
-    public double bonificacao(){
+    public double calcularBonificacao(){
         double bonificacao = 0;
         
         if(this.getTempoEmpresa() >= 12){
