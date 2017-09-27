@@ -1,0 +1,150 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+    	<title>Projeto Prático</title>
+
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+
+      <div class="container">
+        <!-- Page Content goes here -->
+		
+		 <img src="../img/materialize-logo.png" alt="materialize-logo" height="" width="">
+		 
+        <h1>Materialize Framework</h1>
+		<a href="http://materializecss.com">http://materializecss.com</a>
+		
+		<h2>Recursos CSS</h2>
+
+		<h4>Form - Input Fields</h4>
+
+	  <div class="row">
+		<form class="col s12">
+		  <div class="row">
+			<div class="input-field col s6">
+			  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			  <label for="first_name">First Name</label>
+			</div>
+			<div class="input-field col s6">
+			  <input id="last_name" type="text" class="validate">
+			  <label for="last_name">Last Name</label>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="input-field col s12">
+			  <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+			  <label for="disabled">Disabled</label>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="input-field col s12">
+			  <input id="password" type="password" class="validate">
+			  <label for="password">Password</label>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="input-field col s12">
+			  <input id="email" type="email" class="validate">
+			  <label for="email">Email</label>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="col s12">
+			  This is an inline input field:
+			  <div class="input-field inline">
+				<input id="email" type="email" class="validate">
+				<label for="email" data-error="wrong" data-success="right">Email</label>
+			  </div>
+			</div>
+		  </div>
+		  
+	    <button class="btn waves-effect waves-light s6" type="submit" name="action">Submit
+			<i class="material-icons right">send</i>
+	    </button>
+		</form>
+	  </div>
+	  
+	  <h4>Icon Prefixes</h4>
+ <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input id="icon_telephone" type="tel" class="validate">
+          <label for="icon_telephone">Telephone</label>
+        </div>
+      </div>
+    </form>
+  </div>
+ 
+ 	  <h4>Radio Buttons</h4>
+    <form action="#">
+    <p>
+      <input name="group1" type="radio" id="test1" />
+      <label for="test1">Red</label>
+    </p>
+    <p>
+      <input name="group1" type="radio" id="test2" />
+      <label for="test2">Yellow</label>
+    </p>
+    <p>
+      <input class="with-gap" name="group1" type="radio" id="test3"  />
+      <label for="test3">Green</label>
+    </p>
+    <p>
+      <input name="group1" type="radio" id="test4" disabled="disabled" />
+      <label for="test4">Brown</label>
+    </p>
+  </form>
+  
+  
+  <h4>Checkboxes</h4>
+   <form action="#">
+    <p>
+      <input type="checkbox" id="test5" />
+      <label for="test5">Red</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test6" checked="checked" />
+      <label for="test6">Yellow</label>
+    </p>
+    <p>
+      <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+      <label for="filled-in-box">Filled in</label>
+    </p>
+    <p>
+      <input type="checkbox" id="indeterminate-checkbox" />
+      <label for="indeterminate-checkbox">Indeterminate Style</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test7" checked="checked" disabled="disabled" />
+      <label for="test7">Green</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test8" disabled="disabled" />
+      <label for="test8">Brown</label>
+    </p>
+  </form>
+		<p>
+			<a class="material-icons" href="../index.html">arrow_back</a>
+		</p>
+      </div>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="../js/materialize.min.js"></script>
+    </body>
+  </html>
