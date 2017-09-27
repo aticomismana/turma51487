@@ -17,30 +17,31 @@ import model.*;
  */
 public class VendedorDAO {
     Conexao conexao;
-    
+
     public VendedorDAO(){
-        conexao = new Conexao();  
+        conexao = new Conexao();
     }
-    
-    public void insereVendedor(String nome, String salario, String mesesContratado, String cpf ){
+
+    public void insereVendedor(String nome, String salario, String mesesContratado, String cpf, String tipo_vendedor ){
         try{
-            String sql= "INSERT INTO vendedor (nome, salario, mesesContratado, cpf) VALUES (?,?,?,?);";
+            String sql= "INSERT INTO vendedor (nome, salario, mesesContratado, cpf, tipo_vendedor) VALUES (?,?,?,?,?);";
             Connection con = conexao.getConnection();
             PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
             stmt.setString(1, nome);
             stmt.setString(2, salario);
             stmt.setString(3, mesesContratado);
             stmt.setString(4, cpf);
+            stmt.setString(5, tipo_vendedor);
             stmt.execute();
             stmt.close();
             con.close();
             System.out.println("here");
-                       
+
         }catch(Exception e){
             System.out.println("Erro: "+e.getMessage());
         }
     }
-    
+
     public ArrayList<Vendedor> listaVendedor(){
         ArrayList listaVendedores = new ArrayList();
         Vendedor vendedor;
@@ -53,16 +54,17 @@ public class VendedorDAO {
                 vendedor.setId(rs.getInt("id"));
                 vendedor.setNome(rs.getString("nome"));
                 vendedor.setCpf(rs.getString("cpf"));
+                vendedor.setTipoVendedor(rs.getString("tipo_vendedor"));
                 vendedor.setSalario(rs.getDouble("salario"));
                 vendedor.setMesesContrato(rs.getInt("mesesContratado"));
                 listaVendedores.add(vendedor);
             }
-            
+
         }catch(Exception e){
             System.out.println("Erro: "+ e.getMessage());
         } return listaVendedores;
     }
-    
+
     public void editarPessoa(int id, String nome, String nick){
         try{
             String sql = "update funcionario set nome=?, nick=? where id=?";
@@ -74,10 +76,10 @@ public class VendedorDAO {
             ps.executeUpdate();
         } catch (Exception e){
             System.out.println("Erro:"+e.getMessage());
-            
+
         }
     }
-    
+
     public void eliminarVendedor(int id){
         try{
             String sql = "DELETE FROM vendedor WHERE id=?";

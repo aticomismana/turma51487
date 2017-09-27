@@ -22,7 +22,7 @@ public class ControllerListagem implements ActionListener, KeyListener{
     JfListar viewCRUD = new JfListar();
     VendedorDAO vendedorDAO = new VendedorDAO();
     DefaultTableModel tabela = new DefaultTableModel();
-        
+
     public ControllerListagem(JfListar viewCRUD){
         this.viewCRUD = viewCRUD;
         this.viewCRUD.botao_cadastro.addActionListener(this);
@@ -34,9 +34,10 @@ public class ControllerListagem implements ActionListener, KeyListener{
         tabela.addColumn("CPF");
         tabela.addColumn("Salario");
         tabela.addColumn("Meses de contratado");
+        tabela.addColumn("Tipo vendedor");
         ArrayList<Vendedor> listaVendedor = vendedorDAO.listaVendedor();
 
-        Object [] coluna  = new Object[5];
+        Object [] coluna  = new Object[6];
         int numRegistros = listaVendedor.size();
         for(int i = 0; i < numRegistros; i++){
             coluna[0] = listaVendedor.get(i).getId();
@@ -44,10 +45,11 @@ public class ControllerListagem implements ActionListener, KeyListener{
             coluna[2] = listaVendedor.get(i).getCpf();
             coluna[3] = listaVendedor.get(i).getSalario().toString();
             coluna[4] = listaVendedor.get(i).getMesesContrato();
+            coluna[5] = listaVendedor.get(i).getTipoVendedor();
             tabela.addRow(coluna);
         }
     }
-    
+
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == viewCRUD.botao_cadastro){
             JF jf = new JF();
@@ -62,7 +64,7 @@ public class ControllerListagem implements ActionListener, KeyListener{
             tabela.removeRow(viewCRUD.tabelaListagem.getSelectedRow());
             vendedorDAO.eliminarVendedor(identificador);
         }
-        
+
     }
 
     @Override
@@ -79,5 +81,5 @@ public class ControllerListagem implements ActionListener, KeyListener{
     public void keyReleased(KeyEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

@@ -19,13 +19,13 @@ import dao.*;
  */
 public class Controller implements ActionListener, KeyListener{
     JF viewCRUD = new JF();
-    
+
     public Controller(JF viewCRUD){
         this.viewCRUD = viewCRUD;
         this.viewCRUD.botaoCadastrar.addActionListener(this);
         this.viewCRUD.botaoRetornar.addActionListener(this);
     }
-    
+
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == viewCRUD.botaoCadastrar){
             VendedorDAO vendedor = new VendedorDAO();
@@ -34,28 +34,29 @@ public class Controller implements ActionListener, KeyListener{
             String salario = viewCRUD.salario.getText();
             int valor_compra = Integer.parseInt(viewCRUD.valor_compra.getText());
             String mesesContratado = viewCRUD.mesesContratado.getText();
-            if(viewCRUD.tipo_funcionario.getSelectedItem() == "comissionado"){
+            String tipo_funcionario = viewCRUD.tipo_funcionario.getSelectedItem();
+            if(tipo_funcionario == "comissionado"){
                 Comissionado comissionado = new Comissionado();
                 comissionado.setSalario(Double.parseDouble(salario));
                 comissionado.setMesesContrato(Integer.parseInt(mesesContratado));
                 comissionado.calculaComissao(valor_compra);
                 comissionado.concederBonificacao();
-                vendedor.insereVendedor(nome, comissionado.getSalario().toString(), mesesContratado, cpf);
-            } else if(viewCRUD.tipo_funcionario.getSelectedItem() == "diretor"){
+                vendedor.insereVendedor(nome, comissionado.getSalario().toString(), mesesContratado, cpf, tipo_funcionario);
+            } else if(tipo_funcionario == "diretor"){
                 Diretor diretor = new Diretor();
                 diretor.setSalario(Double.parseDouble(salario));
-                vendedor.insereVendedor(nome, diretor.getSalario().toString(), mesesContratado, cpf);
-            } else if(viewCRUD.tipo_funcionario.getSelectedItem() == "auxiliar"){
+                vendedor.insereVendedor(nome, diretor.getSalario().toString(), mesesContratado, cpf, tipo_funcionario);
+            } else if(tipo_funcionario == "auxiliar"){
                 Auxiliar auxiliar = new Auxiliar();
                 auxiliar.setSalario(Double.parseDouble(salario));
                 auxiliar.setMesesContrato(Integer.parseInt(mesesContratado));
                 auxiliar.calculaComissao(valor_compra);
                 auxiliar.concederBonificacao();
-                vendedor.insereVendedor(nome, auxiliar.getSalario().toString(), mesesContratado, cpf);
+                vendedor.insereVendedor(nome, auxiliar.getSalario().toString(), mesesContratado, cpf, tipo_funcionario);
             }
-            
+
             this.voltarLista();
-            
+
         }
         if(e.getSource() == viewCRUD.botaoRetornar){
             this.voltarLista();
@@ -65,11 +66,11 @@ public class Controller implements ActionListener, KeyListener{
         JfListar jfListagem = new JfListar();
         jfListagem.setVisible(true);
         ControllerListagem controllerListagem = new ControllerListagem(jfListagem);
-            
+
         viewCRUD.dispose();
         jfListagem.setLocationRelativeTo(null);
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -84,5 +85,5 @@ public class Controller implements ActionListener, KeyListener{
     public void keyReleased(KeyEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
