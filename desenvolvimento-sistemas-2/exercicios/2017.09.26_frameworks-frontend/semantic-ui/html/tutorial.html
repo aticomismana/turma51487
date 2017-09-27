@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/semantic.css">
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../js/semantic.js"></script>
+    <title>Semantic-Ui</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="ui secondary pointing menu">
+      <a class="item" href="../index.html">
+        Início
+      </a>
+      <a class="item active" href="./instalacao.html">
+        Instalação
+      </a>
+      <a class="item" href="#listas">
+        Listas
+      </a>
+      <a class="item" href="#tabelas">
+        Tabelas
+      </a>
+      <a class="item" href="#botoes">
+        Botoes
+      </a>
+      <a class="item" href="#links">
+        Links
+      </a>
+      <a class="item" href="#formulario">
+        Formulario
+      </a>
+    </div>
+    <!-- Fim do navbar -->
+
+    <div class="ui container">
+
+      <div class="ui segment">
+        <div id="listas">
+          <h2 class="ui center aligned header">Listas</h2>
+          <button type="button" class="tiny ui primary button" name="button" onclick="abrirModalListas()">Ver código</button>
+
+          <div class="ui clearing divider"></div>
+          <div class="ui three column vertically padded grid">
+            <div class="column">
+              <strong>Lista padrão</strong>
+              <ul class="ui list">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3
+                  <ul>
+                    <li>Item 3.1</li>
+                    <li>Item 3.2</li>
+                    <li>Item 3.3</li>
+                  </ul>
+                </li>
+                <li>Item 4</li>
+              </ul>
+            </div>
+            <div class="column">
+              <strong>Uma lista ordenada também pode usar a tag ol</strong>
+              <ol class="ui list">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3
+                  <ol>
+                    <li>Item 3.1</li>
+                    <li>Item 3.2</li>
+                    <li>Item 3.3</li>
+                  </ol>
+                </li>
+                <li>Item 4</li>
+              </ol>
+            </div>
+            <div class="column">
+              <strong>Uma lista ordenada com divs utilizando as classes de list do <a href="https://semantic-ui.com">semantic UI</a></strong>
+              <div class="ui bulleted list">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">
+                  <div>Item 3</div>
+                  <div class="list">
+                    <div class="item">Item 3.1</div>
+                    <div class="item">Item 3.2</div>
+                  </div>
+                </div>
+                <div class="item">Item 3.3</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="tabelas">
+          <div class="ui clearing divider"></div>
+          <h2 class="ui center aligned header">Tabelas</h2>
+          <button type="button" class="tiny ui primary button" name="button" onclick="abrirModalTabelas()">Ver código</button>
+          <div class="ui clearing divider"></div>
+          <table class="ui single line table selectable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Data de registro</th>
+                <th>Email</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Lilki</td>
+                <td>14 de setembro de 2013</td>
+                <td>jhlilk22@yahoo.com</td>
+                <td>Ativo</td>
+              <tr>
+                <td>Jamie Harington</td>
+                <td> 30 de janeiro de 2014</td>
+                <td>jamieharingonton@yahoo.com</td>
+                <td>Inativo</td>
+              </tr>
+              <tr>
+                <td>Jill Lewis</td>
+                <td>11 de maio de 2014</td>
+                <td>jilsewris22@yahoo.com</td>
+                <td>Inativo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+        <div id="botoes">
+          <div class="ui clearing divider"></div>
+          <h2 class="ui center aligned header">Botões</h2>
+          <button type="button" class="tiny ui primary button" name="button" onclick="abrirModalBotoes()">Ver código</button>
+          <div class="ui clearing divider"></div>
+          <strong>Cores do botões</strong>
+          <div class="row">
+            <button class="ui red button">Red</button>
+            <button class="ui orange button">Orange</button>
+            <button class="ui yellow button">Yellow</button>
+            <button class="ui olive button">Olive</button>
+            <button class="ui green button">Green</button>
+            <button class="ui teal button">Teal</button>
+            <button class="ui blue button">Blue</button>
+            <button class="ui violet button">Violet</button>
+            <button class="ui purple button">Purple</button>
+            <button class="ui pink button">Pink</button>
+            <button class="ui brown button">Brown</button>
+            <button class="ui grey button">Grey</button>
+            <button class="ui black button">Black</button>
+          </div>
+          <br>
+          <strong>Botoes com a classe .loading</strong>
+          <div class="row">
+            <button class="ui loading button">Loading</button>
+            <button class="ui basic loading button">Loading</button>
+            <button class="ui primary loading button">Loading</button>
+            <button class="ui secondary loading button">Loading</button>
+          </div>
+        </div>
+        <br>
+        <strong>Botões com a classe .inverted para inverter as cores do botão</strong>
+        <div class="row">
+          <button class="ui red inverted button">Red</button>
+          <button class="ui orange inverted button">Orange</button>
+          <button class="ui yellow inverted button">Yellow</button>
+          <button class="ui olive inverted button">Olive</button>
+          <button class="ui green inverted button">Green</button>
+          <button class="ui teal inverted button">Teal</button>
+          <button class="ui blue inverted button">Blue</button>
+          <button class="ui violet inverted button">Violet</button>
+          <button class="ui purple inverted button">Purple</button>
+          <button class="ui pink inverted button">Pink</button>
+          <button class="ui brown inverted button">Brown</button>
+          <button class="ui grey inverted button">Grey</button>
+          <button class="ui black inverted button">Black</button>
+        </div>
+        <br>
+        <div id="links">
+          <div class="ui clearing divider"></div>
+          <h2 class="ui center aligned header">Links</h2>
+          <button type="button" class="tiny ui primary button" name="button" onclick="abrirModalLinks()">Ver código</button>
+          <div class="ui clearing divider"></div>
+
+          <div class="ui link list">
+            <div class="active item">Menu</div>
+            <a class="item" href="../index.html">Inicio</a>
+            <a class="item" href="./instalacao.html">Instalação do semantic UI</a>
+            <a class="item" href="./home.html">Aplicação</a>
+          </div>
+        </div>
+        <div id="formulario">
+          <div class="ui clearing divider"></div>
+          <h2 class="ui center aligned header">Formulário</h2>
+          <button type="button" class="tiny ui primary button" name="button" onclick="abrirModalFormulario()">Ver código</button>
+          <div class="ui clearing divider"></div>
+
+          <div class="ui form">
+            <!-- INPUT TEXT -->
+            <div class="field">
+              <label>Input tipo texto</label>
+              <input type="email" placeholder="joe@schmoe.com">
+            </div>
+            <!-- FIM INPUT TEXT -->
+            <br>
+            <!-- INPUT RADIO -->
+            <div class="inline fields">
+              <label for="fruit">Input tipo radio:</label>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="fruit" checked="" tabindex="0">
+                  <label>Apples</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="fruit" tabindex="0">
+                  <label>Oranges</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="fruit" tabindex="0">
+                  <label>Pears</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="fruit" tabindex="0">
+                  <label>Grapefruit</label>
+                </div>
+              </div>
+            </div>
+            <!-- FIM INPUT RADIO -->
+            <br>
+            <!-- INPUT CHECKBOX -->
+            <strong>Input tipo checkbox</strong>
+            <div class="inline field">
+              <div class="ui checkbox">
+                <input type="checkbox" tabindex="0">
+                <label>Checkbox</label>
+              </div>
+            </div>
+            <div class="inline field">
+              <div class="ui slider checkbox">
+                <input type="checkbox" tabindex="0">
+                <label>Slider</label>
+              </div>
+              <label></label>
+            </div>
+            <div class="inline field">
+              <div class="ui toggle checkbox">
+                <input type="checkbox" tabindex="0">
+                <label>Toggle</label>
+              </div>
+            </div>
+            <!-- FIM INPUT RADIO -->
+            <br>
+            <!-- TEXT AREA -->
+            <strong>Text area</strong>
+            <div class="field">
+              <label>Text</label>
+              <textarea></textarea>
+            </div>
+            <div class="field">
+              <label>Short Text</label>
+              <textarea rows="2"></textarea>
+            </div>
+            <!-- FIM TEXT AREA -->
+            <br>
+            <!-- SELECT -->
+            <div class="field">
+              <label>Input tipo select</label>
+              <div class="ui selection dropdown">
+                <input type="hidden" name="gender">
+                <i class="dropdown icon"></i>
+                <div class="default text">Gender</div>
+                <div class="menu">
+                  <div class="item" data-value="1">Masculino</div>
+                  <div class="item" data-value="0">Feminino</div>
+                </div>
+              </div>
+            </div>
+            <!-- FIM DO SELECT -->
+            <br>
+            <!-- FOMULARIO COM ERRO -->
+            <div class="two fields">
+              <div class="field error">
+              </div>
+              <div class="field">
+                <label>Sobrenome</label>
+                <input placeholder="sobrenome" type="text">
+              </div>
+            </div>
+            <div class="inline field error">
+              <div class="ui checkbox">
+                <input type="checkbox" tabindex="0">
+                <label>I agree to the Terms and Conditions</label>
+              </div>
+            </div>
+            <!-- FIM DO FORMULARIO COM ERRO -->
+            <br>
+            <!-- INPUT DISABILITADO -->
+            <div class="two fields">
+              <div class="disabled field">
+                <label>nome</label>
+                <input placeholder="Read Only" type="text" disabled="" tabindex="-1">
+              </div>
+              <div class="disabled field">
+                <label>sobrenome</label>
+                <input placeholder="Disabled" type="text" disabled="" tabindex="-1">
+              </div>
+            </div>
+            <!-- FIM DO INPUT DISABILITADO -->
+            <br>
+            <!-- TAMANHO INPUT -->
+            <div class="ui mini form">
+              <div class="two fields">
+                <div class="field">
+                  <label>nome</label>
+                  <input placeholder="nome" type="text">
+                </div>
+                <div class="field">
+                  <label>sobrenome</label>
+                  <input placeholder="sobrenome" type="text">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="ui massive form">
+              <div class="two fields">
+                <div class="field">
+                  <label>nome</label>
+                  <input placeholder="nome" type="text">
+                </div>
+                <div class="field">
+                  <label>sobrenome</label>
+                  <input placeholder="sobrenome" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+            <!--FIM  TAMANHO INPUT -->
+
+            <!-- MODAL CODIGO DE LISTAS  -->
+            <div class="ui modal" id="modal-listas">
+              <div class="header">
+                Listas
+              </div>
+              <div class="image content">
+                <div class="description">
+                  <pre>
+&lt;div class="ui three column vertically padded grid"&gt
+  &lt;div class="column"&gt
+    <strong>Lista padrão</strong>
+    &lt;ul class="ui list"&gt
+      &lt;li&gtItem 1&lt;/li&gt
+      &lt;li&gtItem 2&lt;/li&gt
+      &lt;li&gtItem 3
+        &lt;ul&gt
+          &lt;li&gtItem 3.1&lt;/li&gt
+          &lt;li&gtItem 3.2&lt;/li&gt
+          &lt;li&gtItem 3.3&lt;/li&gt
+        &lt;/ul&gt
+      &lt;/li&gt
+      &lt;li&gtItem 4&lt;/li&gt
+    &lt;/ul&gt
+  &lt;/div&gt
+
+  &lt;div class="column"&gt
+    <strong>Uma lista ordenada também pode usar a tag ol</strong>
+    &lt;ol class="ui list"&gt
+      &lt;li&gtItem 1&lt;/li&gt
+      &lt;li&gtItem 2&lt;/li&gt
+      &lt;li&gtItem 3
+        &lt;ol&gt
+          &lt;li&gtItem 3.1&lt;/li&gt
+          &lt;li&gtItem 3.2&lt;/li&gt
+          &lt;li&gtItem 3.3&lt;/li&gt
+        &lt;/ol&gt
+      &lt;/li&gt
+      &lt;li&gtItem 4&lt;/li&gt
+    &lt;/ol&gt
+  &lt;/div&gt
+
+  &lt;div class="column"&gt
+    <strong>Uma lista ordenada com divs utilizando as classes de list do <a href="https://semantic-ui.com">semantic UI</a></strong>
+    &lt;div class="ui bulleted list"&gt
+      &lt;div class="item"&gtItem 1&lt;/div&gt
+      &lt;div class="item"&gtItem 2&lt;/div&gt
+      &lt;div class="item"&gt
+        &lt;div&gtItem 3&lt;/div&gt
+        &lt;div class="list"&gt
+          &lt;div class="item"&gtItem 3.1&lt;/div&gt
+          &lt;div class="item"&gtItem 3.2&lt;/div&gt
+        &lt;/div&gt
+      &lt;/div&gt
+      &lt;div class="item"&gtItem 3.3&lt;/div&gt
+    &lt;/div&gt
+  &lt;/div&gt
+&lt;/div&gt
+                  </pre>
+                </div>
+              </div>
+              <div class="actions">
+                <div class="ui black deny button">
+                  Fechar
+                </div>
+              </div>
+            </div>
+            <!-- FIM MODAL CODIGO DE LISTAS  -->
+
+            <!-- MODAL CODIGO DE TABELAS  -->
+            <div class="ui modal" id="modal-tabelas">
+              <div class="header">
+                Tabelas
+              </div>
+              <div class="image content">
+                <div class="description">
+                  <pre>
+&lt;table class="ui single line table selectable"&gt
+  &lt;thead&gt
+    &lt;tr&gt
+      &lt;th&gtName&lt;/th&gt
+      &lt;th&gtData de registro&lt;/th&gt
+      &lt;th&gtEmail&lt;/th&gt
+      &lt;th&gtStatus&lt;/th&gt
+    &lt;/tr&gt
+  &lt;/thead&gt
+  &lt;tbody&gt
+    &lt;tr&gt
+      &lt;td&gtJohn Lilki&lt;/td&gt
+      &lt;td&gt14 de setembro de 2013&lt;/td&gt
+      &lt;td&gtjhlilk22@yahoo.com&lt;/td&gt
+      &lt;td&gtAtivo&lt;/td&gt
+    &lt;tr&gt
+      &lt;td&gtJamie Harington&lt;/td&gt
+      &lt;td&gt 30 de janeiro de 2014&lt;/td&gt
+      &lt;td&gtjamieharingonton@yahoo.com&lt;/td&gt
+      &lt;td&gtInativo&lt;/td&gt
+    &lt;/tr&gt
+    &lt;tr&gt
+      &lt;td&gtJill Lewis&lt;/td&gt
+      &lt;td&gt11 de maio de 2014&lt;/td&gt
+      &lt;td&gtjilsewris22@yahoo.com&lt;/td&gt
+      &lt;td&gtInativo&lt;/td&gt
+    &lt;/tr&gt
+  &lt;/tbody&gt
+&lt;/table&gt
+                  </pre>
+                </div>
+              </div>
+              <div class="actions">
+                <div class="ui black deny button">
+                  Fechar
+                </div>
+              </div>
+            </div>
+            <!-- FIM MODAL CODIGO DE TABELAS  -->
+
+            <!-- MODAL CODIGO DE BOTOES  -->
+            <div class="ui modal" id="modal-botoes">
+              <div class="header">
+                Botões
+              </div>
+              <div class="image content">
+                <div class="description">
+                  <pre>
+<strong>Cores do botões</strong>
+&lt;div class="row"&gt
+  &lt;button class="ui red button"&gtRed&lt;/button&gt
+  &lt;button class="ui orange button"&gtOrange&lt;/button&gt
+  &lt;button class="ui yellow button"&gtYellow&lt;/button&gt
+  &lt;button class="ui olive button"&gtOlive&lt;/button&gt
+  &lt;button class="ui green button"&gtGreen&lt;/button&gt
+  &lt;button class="ui teal button"&gtTeal&lt;/button&gt
+  &lt;button class="ui blue button"&gtBlue&lt;/button&gt
+  &lt;button class="ui violet button"&gtViolet&lt;/button&gt
+  &lt;button class="ui purple button"&gtPurple&lt;/button&gt
+  &lt;button class="ui pink button"&gtPink&lt;/button&gt
+  &lt;button class="ui brown button"&gtBrown&lt;/button&gt
+  &lt;button class="ui grey button"&gtGrey&lt;/button&gt
+  &lt;button class="ui black button"&gtBlack&lt;/button&gt
+&lt;/div&gt
+<br>
+<strong>Botoes com a classe .loading</strong>
+&lt;div class="row"&gt
+  &lt;button class="ui loading button"&gtLoading&lt;/button&gt
+  &lt;button class="ui basic loading button"&gtLoading&lt;/button&gt
+  &lt;button class="ui primary loading button"&gtLoading&lt;/button&gt
+  &lt;button class="ui secondary loading button"&gtLoading&lt;/button&gt
+&lt;/div&gt
+<br>
+<strong>Botões com a classe .inverted para inverter as cores do botão</strong>
+&lt;div class="row"&gt
+  &lt;button class="ui red inverted button"&gtRed&lt;/button&gt
+  &lt;button class="ui orange inverted button"&gtOrange&lt;/button&gt
+  &lt;button class="ui yellow inverted button"&gtYellow&lt;/button&gt
+  &lt;button class="ui olive inverted button"&gtOlive&lt;/button&gt
+  &lt;button class="ui green inverted button"&gtGreen&lt;/button&gt
+  &lt;button class="ui teal inverted button"&gtTeal&lt;/button&gt
+  &lt;button class="ui blue inverted button"&gtBlue&lt;/button&gt
+  &lt;button class="ui violet inverted button"&gtViolet&lt;/button&gt
+  &lt;button class="ui purple inverted button"&gtPurple&lt;/button&gt
+  &lt;button class="ui pink inverted button"&gtPink&lt;/button&gt
+  &lt;button class="ui brown inverted button"&gtBrown&lt;/button&gt
+  &lt;button class="ui grey inverted button"&gtGrey&lt;/button&gt
+  &lt;button class="ui black inverted button"&gtBlack&lt;/button&gt
+&lt;/div&gt
+                  </pre>
+                </div>
+              </div>
+              <div class="actions">
+                <div class="ui black deny button">
+                  Fechar
+                </div>
+              </div>
+            </div>
+            <!-- FIM MODAL CODIGO DE BOTOES  -->
+
+            <!-- MODAL CODIGO DE LINKS  -->
+            <div class="ui modal" id="modal-links">
+              <div class="header">
+                Links
+              </div>
+              <div class="image content">
+                <div class="description">
+                  <pre>
+&lt;div class="ui link list"&gt
+  &lt;div class="active item"&gtMenu&lt;/div&gt
+  &lt;a class="item" href="#"&gtInicio&lt;/a&gt
+  &lt;a class="item" href="#"&gtInstalação do semantic UI&lt;/a&gt
+  &lt;a class="item" href="#"&gtAplicação&lt;/a&gt
+&lt;/div&gt
+                  </pre>
+                </div>
+              </div>
+              <div class="actions">
+                <div class="ui black deny button">
+                  Fechar
+                </div>
+              </div>
+            </div>
+            <!-- FIM MODAL CODIGO DE LINKS  -->
+
+            <!-- MODAL CODIGO DE FORMULARIO  -->
+            <div class="ui modal" id="modal-formulario">
+              <div class="header">
+                Formulário
+              </div>
+              <div class="image content">
+                <div class="description">
+                  <pre>
+&lt;div class="ui form"&gt
+  &lt;!-- INPUT TEXT --&gt
+  &lt;div class="field"&gt
+    &lt;label&gtInput tipo texto&lt;/label&gt
+    &lt;input type="email" placeholder="joe@schmoe.com"&gt
+  &lt;/div&gt
+  &lt;!-- FIM INPUT TEXT --&gt
+  &lt;br&gt
+  &lt;!-- INPUT RADIO --&gt
+  &lt;div class="inline fields"&gt
+    &lt;label for="fruit"&gtInput tipo radio:&lt;/label&gt
+    &lt;div class="field"&gt
+      &lt;div class="ui radio checkbox"&gt
+        &lt;input type="radio" name="fruit" checked="" tabindex="0"&gt
+        &lt;label&gtApples&lt;/label&gt
+      &lt;/div&gt
+    &lt;/div&gt
+    &lt;div class="field"&gt
+      &lt;div class="ui radio checkbox"&gt
+        &lt;input type="radio" name="fruit" tabindex="0"&gt
+        &lt;label&gtOranges&lt;/label&gt
+      &lt;/div&gt
+    &lt;/div&gt
+    &lt;div class="field"&gt
+      &lt;div class="ui radio checkbox"&gt
+        &lt;input type="radio" name="fruit" tabindex="0"&gt
+        &lt;label&gtPears&lt;/label&gt
+      &lt;/div&gt
+    &lt;/div&gt
+    &lt;div class="field"&gt
+      &lt;div class="ui radio checkbox"&gt
+        &lt;input type="radio" name="fruit" tabindex="0"&gt
+        &lt;label&gtGrapefruit&lt;/label&gt
+      &lt;/div&gt
+    &lt;/div&gt
+  &lt;/div&gt
+  &lt;!-- FIM INPUT RADIO --&gt
+  &lt;br&gt
+  &lt;!-- INPUT CHECKBOX --&gt
+  &lt;strong&gtInput tipo checkbox&lt;/strong&gt
+  &lt;div class="inline field"&gt
+    &lt;div class="ui checkbox"&gt
+      &lt;input type="checkbox" tabindex="0"&gt
+      &lt;label&gtCheckbox&lt;/label&gt
+    &lt;/div&gt
+  &lt;/div&gt
+  &lt;div class="inline field"&gt
+    &lt;div class="ui slider checkbox"&gt
+      &lt;input type="checkbox" tabindex="0"&gt
+      &lt;label&gtSlider&lt;/label&gt
+    &lt;/div&gt
+    &lt;label&gt&lt;/label&gt
+  &lt;/div&gt
+  &lt;div class="inline field"&gt
+    &lt;div class="ui toggle checkbox"&gt
+      &lt;input type="checkbox" tabindex="0"&gt
+      &lt;label&gtToggle&lt;/label&gt
+    &lt;/div&gt
+  &lt;/div&gt
+  &lt;!-- FIM INPUT RADIO --&gt
+  &lt;br&gt
+  &lt;!-- TEXT AREA --&gt
+  &lt;strong&gtText area&lt;/strong&gt
+  &lt;div class="field"&gt
+    &lt;label&gtText&lt;/label&gt
+    &lt;textarea&gt&lt;/textarea&gt
+  &lt;/div&gt
+  &lt;div class="field"&gt
+    &lt;label&gtShort Text&lt;/label&gt
+    &lt;textarea rows="2"&gt&lt;/textarea&gt
+  &lt;/div&gt
+  &lt;!-- FIM TEXT AREA --&gt
+  &lt;br&gt
+  &lt;!-- SELECT --&gt
+  &lt;div class="field"&gt
+    &lt;label&gtInput tipo select&lt;/label&gt
+    &lt;div class="ui selection dropdown"&gt
+      &lt;input type="hidden" name="gender"&gt
+      &lt;i class="dropdown icon"&gt&lt;/i&gt
+      &lt;div class="default text"&gtGender&lt;/div&gt
+      &lt;div class="menu"&gt
+        &lt;div class="item" data-value="1"&gtMasculino&lt;/div&gt
+        &lt;div class="item" data-value="0"&gtFeminino&lt;/div&gt
+      &lt;/div&gt
+    &lt;/div&gt
+  &lt;/div&gt
+  &lt;!-- FIM DO SELECT --&gt
+  &lt;br&gt
+  &lt;!-- FOMULARIO COM ERRO --&gt
+  &lt;div class="two fields"&gt
+    &lt;div class="field error"&gt
+    &lt;/div&gt
+    &lt;div class="field"&gt
+      &lt;label&gtSobrenome&lt;/label&gt
+      &lt;input placeholder="sobrenome" type="text"&gt
+    &lt;/div&gt
+  &lt;/div&gt
+  &lt;div class="inline field error"&gt
+    &lt;div class="ui checkbox"&gt
+      &lt;input type="checkbox" tabindex="0"&gt
+      &lt;label&gtI agree to the Terms and Conditions&lt;/label&gt
+    &lt;/div&gt
+  &lt;/div&gt
+  &lt;!-- FIM DO FORMULARIO COM ERRO --&gt
+  &lt;br&gt
+  &lt;!-- INPUT DISABILITADO --&gt
+  &lt;div class="two fields"&gt
+    &lt;div class="disabled field"&gt
+      &lt;label&gtnome&lt;/label&gt
+      &lt;input placeholder="Read Only" type="text" disabled="" tabindex="-1"&gt
+    &lt;/div&gt
+    &lt;div class="disabled field"&gt
+      &lt;label&gtsobrenome&lt;/label&gt
+      &lt;input placeholder="Disabled" type="text" disabled="" tabindex="-1"&gt
+    &lt;/div&gt
+  &lt;/div&gt
+  &lt;!-- FIM DO INPUT DISABILITADO --&gt
+  &lt;br&gt
+  &lt;!-- TAMANHO INPUT --&gt
+  &lt;div class="ui mini form"&gt
+    &lt;div class="two fields"&gt
+      &lt;div class="field"&gt
+        &lt;label&gtnome&lt;/label&gt
+        &lt;input placeholder="nome" type="text"&gt
+      &lt;/div&gt
+      &lt;div class="field"&gt
+        &lt;label&gtsobrenome&lt;/label&gt
+        &lt;input placeholder="sobrenome" type="text"&gt
+      &lt;/div&gt
+    &lt;/div&gt
+  &lt;/div&gt
+  &lt;br&gt
+  &lt;div class="ui massive form"&gt
+    &lt;div class="two fields"&gt
+      &lt;div class="field"&gt
+        &lt;label&gtnome&lt;/label&gt
+        &lt;input placeholder="nome" type="text"&gt
+      &lt;/div&gt
+      &lt;div class="field"&gt
+        &lt;label&gtsobrenome&lt;/label&gt
+        &lt;input placeholder="sobrenome" type="text"&gt
+      &lt;/div&gt
+    &lt;/div&gt
+  &lt;/div&gt
+&lt;/div&gt
+                  </pre>
+                </div>
+              </div>
+              <div class="actions">
+                <div class="ui black deny button">
+                  Fechar
+                </div>
+              </div>
+            </div>
+            <!-- FIM MODAL CODIGO DE FORMULARIO  -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('.dropdown').dropdown()
+      function abrirModalListas(){
+        $('#modal-listas').modal('show')
+      }
+      function abrirModalTabelas(){
+        $('#modal-tabelas').modal('show')
+      }
+      function abrirModalBotoes(){
+        $('#modal-botoes').modal('show')
+      }
+      function abrirModalLinks(){
+        $('#modal-links').modal('show')
+      }
+      function abrirModalFormulario(){
+        $('#modal-formulario').modal('show')
+      }
+    </script>
+  </body>
+</html>
