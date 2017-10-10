@@ -1,13 +1,13 @@
-// Criando banco local de 5mb de armazenamento
-const db = window.openDatabase("bancoLocal", "1.0", "Teste banco local", 5*1024*1024);
-
 let cartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 let movimentos = 0;
 let comparacao = [];
 let acertos = 0, erros = 0;
-
+let jogador = prompt("Insira seu nome");
 cartas = embaralhar(cartas);
+setTimeout(function () {
+  document.getElementById("jogador").innerHTML = jogador;
 
+}, 0);
 function virarCarta(indice) {
   document.getElementById(indice).src = "../img/" + cartas[indice] + ".jpg";
 
@@ -26,7 +26,6 @@ function compararCartas() {
     if( cartas[indice1] == cartas[indice2] ) {
       acertos += 1;
       document.getElementById("acertos").innerHTML = acertos;
-      console.log("Acertou");
       if(acertos == 10) {
         setTimeout(function () {
           alert("VC GANHOU")
@@ -64,13 +63,20 @@ function embaralhar(array) {
 }
 
 function salvarPontuacao(){
-  var ranking = ["Usuario", acertos, erros, movimentos];
+  let ranking = JSON.parse(localStorage.getItem('ranking')) || [];
+  let usuario = {
+    jogador: jogador,
+    acertos: acertos,
+    erros: erros,
+    movimentos: movimentos
+  };
 
-  db.transaction (function (tx) {
-    tx.executeSql ("INSERT INTO ranking(nome, acertos, erros, movimentos) VALUES (?, ?, ?, ?) ", ranking,
-      function(success){
-        window.location.href = "ranking.html";
-      }, null);
-  });
+  ranking.push(usuario);
 
+  localStorage.setItem("ranking", JSON.stringify(ranking));
+  let reiniciar = confirm("Deseja reiniciar a partida?");
+  if(reiniciar){
+    window.location.reload()
+  }
+  return true;
 }
