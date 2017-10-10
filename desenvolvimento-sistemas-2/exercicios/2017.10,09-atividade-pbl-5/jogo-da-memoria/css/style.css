@@ -1,0 +1,45 @@
+body {
+  width:100%;
+  background-color: #ebf0fa;
+  overflow-x: hidden;
+}
+
+.container {
+  padding-top: 12%;
+}
+
+.navbar {
+  position: absolute;
+  font-size: 22px;
+}
+
+.menu-buttons {
+  margin-top: 60px
+}
+
+.letter {
+  cursor: pointer;
+  width: 180px;
+  max-height: 140px
+}
+
+.menu-button {
+  background-color: #99c2ff;
+  text-decoration: none;
+  padding: 40px 40px 40px 40px;
+  font-size: 19px
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
