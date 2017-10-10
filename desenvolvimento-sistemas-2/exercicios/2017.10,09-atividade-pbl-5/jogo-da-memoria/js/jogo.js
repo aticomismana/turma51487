@@ -40,7 +40,7 @@ function compararCartas() {
       setTimeout(function () {
         document.getElementById(indice1).src = "../img/carta.png";
         document.getElementById(indice2).src = "../img/carta.png";
-      }, 1200);
+      }, 1000);
     }
 
     comparacao = [];
