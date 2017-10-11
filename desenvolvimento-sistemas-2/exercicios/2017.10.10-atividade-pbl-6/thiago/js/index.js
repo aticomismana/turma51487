@@ -43,11 +43,25 @@ function adicionarAlimentacao() {
   $('select').material_select();
 
   listar(objRefeicao, false);
+}
 
+function removerRecomendacao() {
+  document.getElementById("filtro").value = ""
+  document.getElementById("cards").innerHTML = ""
+
+  document.getElementById("titulo").innerHTML = "Lista de alimentos"
+
+  for (var i = 0; i < refeicoes.length; i++) {
+    listar(refeicoes[i], false);
+  }
 }
 
 function listar(objRefeicao, opcional){
-  let list = document.getElementById("cards");
+  let lista = document.getElementById("cards");
+
+  if(opcional){
+    lista.innerHTML = ""
+  }
 
   let card = `
     <div class="col s6 m4">
@@ -64,14 +78,12 @@ function listar(objRefeicao, opcional){
     </div>
   `;
 
-  if(opcional){
-    return list.innerHTML = card
-  }
+
   $('#cards').append(card)
 }
 
 function buscarRefeicao() {
-  let horario = $("#filtro").val();
+  let horario = document.getElementById("filtro").value;
 
   let refeicao = refeicoes.map(function(alimento){
     if(alimento.horario == horario){
@@ -84,6 +96,7 @@ function buscarRefeicao() {
   if(tamanho > 0){
     let min = 0;
     let recomendacao = refeicoes[ Math.floor(Math.random() * (tamanho - min)) + min];
+    document.getElementById("titulo").innerHTML = "Alimento recomenadado"
 
     listar(recomendacao, true);
   }
