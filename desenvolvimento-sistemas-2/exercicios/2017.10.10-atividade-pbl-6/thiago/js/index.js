@@ -106,7 +106,7 @@ function removerRefeicao(indice) {
   for (let i = 0; i < refeicoes.length; i++) {
     listar(refeicoes[i], false)
   }
-  
+
   localStorage.setItem("refeicoes", JSON.stringify(refeicoes))
 }
 
@@ -129,7 +129,7 @@ function listar(objRefeicao, opcional, indice){
   }
 
   let card = `
-    <div class="col s6 m4">
+    <div class="col s12 m4">
       <div class="card horizontal">
         <div class="card-stacked">
           <div class="card-content">
