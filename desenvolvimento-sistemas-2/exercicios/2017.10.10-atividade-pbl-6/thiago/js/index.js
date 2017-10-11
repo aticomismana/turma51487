@@ -1,4 +1,8 @@
-setTimeout(function () {
+let refeicoes = JSON.parse(localStorage.getItem("refeicoes")) || []
+
+$(document).ready(function() {
+  $('select').material_select()
+
   $('.timepicker').pickatime({
     default: 'now', // Set default time: 'now', '1:30AM', '16:30'
     fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
@@ -7,17 +11,14 @@ setTimeout(function () {
     cleartext: 'Clear', // text for clear-button
     canceltext: 'Cancel', // Text for cancel-button
     autoclose: false, // automatic close timepicker
-    ampmclickable: true, // make AM PM clickable
-    aftershow: function(){} //Function for after opening timepicker
+    ampmclickable: true // make AM PM clickable
   })
 
-  $(document).ready(function() {
-    $('select').material_select()
-  })
+  for (let i = 0; i < refeicoes.length; i++) {
+    listar(refeicoes[i], false)
+  }
+})
 
-}, 10)
-
-let refeicoes = []
 
 function adicionarAlimentacao() {
   let objRefeicao = {
@@ -26,6 +27,7 @@ function adicionarAlimentacao() {
     horario: document.getElementById('horario').value,
     adicionado_em: dataAtualFormatada()
   }
+
 
   let verificaExistencia = refeicoes.some(function(refeicao){
     return objRefeicao.horario == refeicao.horario && objRefeicao.refeicao == refeicao.refeicao
@@ -56,6 +58,8 @@ function adicionarAlimentacao() {
 
   refeicoes.push(objRefeicao)
 
+  localStorage.setItem("refeicoes", JSON.stringify(refeicoes))
+
   if(!verificar){
     let select = document.getElementById("filtro")
     let opt = document.createElement('option')
@@ -67,10 +71,8 @@ function adicionarAlimentacao() {
 
   $('select').material_select()
 
-  listar(objRefeicao, false)
   limparInput()
-
-
+  listar(objRefeicao, false)
 }
 
 function limparInput() {
@@ -78,6 +80,8 @@ function limparInput() {
   document.getElementById('horario').className = "validate"
   document.getElementById('validate_alimento').innerHTML = "" 
   document.getElementById('validate_horario').innerHTML = ""
+  document.getElementById('alimento').value = ""
+  document.getElementById('horario').value = ""
 }
 
 function dataAtualFormatada(){
@@ -102,6 +106,8 @@ function removerRefeicao(indice) {
   for (let i = 0; i < refeicoes.length; i++) {
     listar(refeicoes[i], false)
   }
+  
+  localStorage.setItem("refeicoes", JSON.stringify(refeicoes))
 }
 
 function removerRecomendacao() {
