@@ -27,9 +27,7 @@ th, td {
   font-size: 22px;
 }
 
-.menu-buttons {
-  margin-top: 60px
-}
+
 
 .letter {
   cursor: pointer;
@@ -38,9 +36,10 @@ th, td {
 }
 
 .menu-button {
+  display: block;
   background-color: #99c2ff;
   text-decoration: none;
-  padding: 40px 40px 40px 40px;
+  padding: 10px 0 10px 0;
   font-size: 19px
 }
 
