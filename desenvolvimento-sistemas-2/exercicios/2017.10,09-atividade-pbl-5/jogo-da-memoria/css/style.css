@@ -4,12 +4,26 @@ body {
   overflow-x: hidden;
 }
 
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
 .container {
   padding-top: 12%;
 }
 
 .navbar {
-  position: absolute;
+  position: relative;
   font-size: 22px;
 }
 
@@ -30,16 +44,8 @@ body {
   font-size: 19px
 }
 
-table, td, th {
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    padding: 15px;
+@media screen and (min-width: 1020px) {
+  .navbar {
+    position: relative !important;
+  }
 }
