@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="utf-8">
+	<title>Teste AngularJS</title>
+	
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<!-- Angula 1.6.6 -->
+	<script type="text/javascript" src="js/angular1.6.6.min.js"></script>
+</head>
+<body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
+      <form class="col s6" name="myForm">
+      		<span ng-show="myForm.$invalid">
+      			Found erros in the form!
+      		</span>
+      		<div class="row">
+	      		<div class="input-field col s6">
+		      		<input type="email" ng-model="usuario" name="usuario" placeholder="usuario" value="Your name" required>
+			     </div> 
+		    </div>
+		     
+      		<div class="row">
+			     <div class="input-field col s6">
+			      	<input type="text" ng-model="senha" name="senha" placeholder="senha" required>
+	      		</div>
+      		</div class="row">
+	      	
+	      	<div class="row">
+		      	<div class="input-field col s6">
+		      		<button ng-disable="myForm.$invalid"/>Enviar</button>
+		      	</div>
+	    	</div>
+      </form>
+      	<h1>You entered: {{usuario}}</h1>
+      	<h1>{{myForm.usuario.$valid}}</h1>
+</body>
+</html>
