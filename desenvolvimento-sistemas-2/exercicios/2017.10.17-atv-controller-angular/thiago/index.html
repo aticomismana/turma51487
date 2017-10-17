@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  <script src="http://unpkg.com/angular-ui-router@1.0.0-rc.1/release/angular-ui-router.js"></script>
+  <script src="./angular/TodoListController.js" charset="utf-8"></script>
+  <script src="./angular/uiRouter.js" charset="utf-8"></script>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="https://angularjs.org/" class="brand-logo">AngularJS</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="https://docs.angularjs.org/guide">Documentação</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#!/form">Formulário</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#!/list">Listar</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#!/">Início</a></li>
+      </ul>
+
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div ui-view></div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+
+  </body>
+</html>
