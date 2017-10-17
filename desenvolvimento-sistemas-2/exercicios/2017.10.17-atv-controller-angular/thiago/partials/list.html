@@ -1,0 +1,43 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <h1 class="header center orange-text">Lista de atividades</h1>
+    <div class="input-field">
+      <input id="pesquisa" type="text" class="validate" ng-model="pesquisa" placeholder="Informe aqui o que deseja procurar">
+      <label for="pesquisa">Pesquisar</label>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="col s12 m6">
+      <div class="card" ng-repeat="row in atividades | filter: pesquisa">
+        <div class="card-image waves-effect waves-light">
+          <img class="activator" src="img/todo.png">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{row.titulo}}<i class="material-icons right">more_vert</i></span>
+          <p>Clique para ver mais detalhes</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{row.titulo}}<i class="material-icons right">close</i></span>
+          <p>{{row.descricao}}</p>
+          <div class="row">
+            <button class="btn waves-effect waves-light pulse blue darken-1" type="button" ng-click="mudarStatus(row)" ng-if="!row.completa">Marcar como feito
+              <i class="material-icons right">check</i>
+            </button>
+            <button class="btn waves-effect waves-light orange darken-1" type="button" ng-click="mudarStatus(row)" ng-if="row.completa">Não conluído
+              <i class="material-icons right">warning</i>
+            </button>
+            <button class="btn waves-effect waves-light red darken-1" type="button" ng-click="deletarAtividade($index)">Apagar atividade
+              <i class="material-icons right">delete</i>
+            </button>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="">{{row.horario}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
