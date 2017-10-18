@@ -1,5 +1,5 @@
  <!DOCTYPE html>
-<html ng-app="app" lang="en">
+<html ng-app="agenda" lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +14,7 @@
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" rel="stylesheet">
   </head>
-  <body ng-controller="countController">
+  <body ng-controller="agendaController">
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">Carousel</a>
@@ -88,8 +88,32 @@
       </a>
     </div>
 
-    <button ng-click="addOne()">Add</button>
-    <h3>Valor do Contador: {{counter}}</h3>
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nome</label>
+        <input type="text" class="form-control" placeholder="Nome" ng-model="nomeModel">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Telefone</label>
+        <input type="text" class="form-control" placeholder="Telefone" ng-model="telModel">
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="addContatos(nomeModel, telModel)">Cadastrar</button>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="contato in contatos">
+          <td>{{contato.nome}}</td>
+          <td>{{contato.tel}}</td>
+        </tr>
+      </tbody>
+    </table>
       <!-- FOOTER -->
       <footer>
         <p class="float-right"><a href="#">Back to top</a></p>
@@ -111,8 +135,6 @@
     	var app=angular.module('app', []);
 
     	app.controller('countController', function($scope){
-    		
-
         
         $scope.counter = 0;
 
@@ -120,6 +142,20 @@
     			$scope.counter ++;
     		}
     	});
+
+      var agenda=angular.module('agenda', []);
+
+      agenda.controller('agendaController', function($scope){
+
+        $scope.contatos = [{nome: "atico", tel: "123456"},
+                           {nome: "david", tel: "321421421"},
+                           {nome: "arruda", tel: "88218828"}];
+        $scope.addContatos = function(nomeP, telP){
+          $scope.contatos.push({nome: nomeP, tel: telP});
+          $scope.nomeModel = "";
+          $scope.telModel = "";
+        }
+      });
     </script>
   </body>
 </html>
