@@ -2,89 +2,107 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Atividade PBL 7</title>
+    <title>Anguloso</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js" integrity="sha256-IMA0EIgLE53aSU7jFyLtX6u4hqMZ6AeSxlSgiBQ+620=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="anguloso.js">
-
-    </script>
-    <style media="screen">
-
-    </style>
 </head>
-<body ng-app="">
+<body ng-app="bod">
 
-<form ng-model="form" name="form" class="" novalidate action="index.html" method="post">
-    <fieldset>
-        Name: <input type="text" name="nome" ng-model="nome" value="" required>
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">Name is required</span>
-    </fieldset>
-
-
-    <fieldset>
-        Surname: <input type="text" name="sobrenome" value="" required> <br>
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">Surname is required</span>
-
-    </fieldset>
-
-    <fieldset>
-        Choose your username: <input type="text" name="usrname" value="" required> <br>
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">username is required</span>
-
-    </fieldset>
-
-    <fieldset>
-        Create a passwd: <input type="password" name="passwd" value="" required> <br>
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">passwd is required</span>
-
-    </fieldset>
-
-    <fieldset>
-        Confirm your passwd: <input type="password" name="passwd2" value="" required> <br>
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">passwd is required</span>
-
-    </fieldset>
-
-    <fieldset>
-        Birthday: <select class="" name="mes" required>
-
-        </select> <input type="number" name="dia" value="" required>
-        <input type="number" name="ano" value="" required> <br>
-    </fieldset>
+    <form ng-model="form" name="form" class="" novalidate action="index.html" method="post">
+        <fieldset>
+            Name: <input type="text" name="nome" ng-model="nome" value="" required>
+            <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">Name is required</span>
+        </fieldset>
 
 
-    <fieldset>
-        Gender: <select class="" name="genero" required>
-        </select> <br>
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">Gender is required</span>
+        <fieldset>
+            Surname: <input type="text" name="sobrenome" value="" required> <br>
+            <span ng-show="form.sobrenome.$touched && form.sobrenome.$dirty && form.sobrenome.$invalid ">Surname is required</span>
 
-    </fieldset>
+        </fieldset>
+
+        <fieldset>
+            Choose your username: <input type="text" name="usrname" value="" required> <br>
+            <span ng-show="form.usrname.$touched && form.usrname.$dirty && form.usrname.$invalid ">username is required</span>
+
+        </fieldset>
+
+        <fieldset>
+            Create a passwd: <input type="password" name="passwd" value="" required> <br>
+            <span ng-show="form.passwd.$touched && form.passwd.$dirty && form.passwd.$invalid ">passwd is required</span>
+
+        </fieldset>
+
+        <fieldset>
+            Confirm your passwd: <input type="password" name="passwd2" value="" required> <br>
+            <span ng-show="form.passwd2.$touched && form.passwd2.$dirty && form.passwd2.$invalid ">passwd is required</span>
+
+        </fieldset>
+
+        <fieldset>
+            Birthday: <select class="" name="mes" required>
+
+            </select> <input type="number" name="dia" value="" required>
+            <input type="number" name="ano" value="" required> <br>
+        </fieldset>
 
 
-    <fieldset>
-        Mobile phone: <input type="text" name="" value="NADA A FAZER"> <br>
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">Mobile phone is required</span>
+        <fieldset>
+            Gender: <select class="" name="genero" required>
+            </select> <br>
+            <span ng-show="form.genero.$touched && form.genero.$dirty && form.genero.$invalid ">Gender is required</span>
 
-    </fieldset>
-
-    <fieldset>
-        Your current email addres: <input type="email" name="" value="" required> <br>
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">email is required</span>
-
-    </fieldset>
+        </fieldset>
 
 
-    <fieldset>
-        Location: <select class="" name="pais">
+        <fieldset>
+            Mobile phone: <input type="text" name="" value="NADA A FAZER"> <br>
+        </fieldset>
 
-        </select>
+        <fieldset>
+            Your current email addres: <input type="email" name="" value="" required> <br>
+            <span ng-show="form.email.$touched && form.email.$dirty && form.email.$invalid ">email is required</span>
 
-        <span ng-show="form.nome.$touched && form.nome.$dirty && form.nome.$invalid ">Location is required</span>
+        </fieldset>
 
-    </fieldset>
 
-    <button type="button" name="submit">Next Step</button>
+        <fieldset>
+            Location: <select class="" name="pais">
 
-</form>
+            </select>
+
+            <span ng-show="form.pais.$touched && form.pais.$dirty && form.pais.$invalid ">Location is required</span>
+
+        </fieldset>
+
+        <button type="button" name="submit">Next Step</button>
+
+    </form>
+
+    <script type="text/javascript">
+
+
+
+    var bod = angular.module('bod', []);
+
+    bod.controller('agendaController', function($scope){
+        $scope.emails = ["abigobaldo", "fulano", "beltrano", "justiniano"];
+        $scope.location = ;
+
+        $scope.addContatos = function(nomeP, telP){
+            $scope.contatos.push({nome: nomeP, tel: telP});
+            $scope.nomeModel = "";
+            $scope.telModel = "";
+        }
+
+        $scope.checaEmail = function(email){
+            
+            angular.forEach($scope.emails, function(item, chave){
+                if(item == email)
+
+            });
+        }
+    });
+    </script>
 
 </body>
 </html>
