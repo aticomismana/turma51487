@@ -84,20 +84,18 @@ const myApp = angular.module('todoApp', ['ui.router'])
       TodoListService.setAtividades($scope.atividades)
     }
   })
-  .controller('AtividadeFormController', function($scope, $timeout, $http) {
+  .controller('AtividadeFormController', function($scope, $timeout, $http, UsuariosService) {
     const select = document.getElementById("paises")
     const data = new Date();
     let option
     let anoAtual = data.getFullYear()
     $scope.usuario = {}
     $scope.submeterFormulario = submeterFormulario
+    $scope.verificaEmail = verificaEmail
 
     $scope.$watch('usuario.anoNascimento', function() {
-      if ($scope.usuario.anoNascimento >= anoAtual - 3) {
-        $scope.formCadastro.$setValidity("anoNascimento", false);
-        $scope.anoNascimentoInvalid = true
-      }
-      else $scope.anoNascimentoInvalid = false
+      if ($scope.usuario.anoNascimento >= anoAtual - 3) $scope.formCadastro.$setValidity("anoNascimento", false);
+      else $scope.formCadastro.$setValidity("anoNascimento", true)
     });
 
     $('select').material_select();
@@ -114,6 +112,13 @@ const myApp = angular.module('todoApp', ['ui.router'])
       if($scope.formCadastro.$invalid) return alert('FORMULARIO CONTEM ERRO DE VALIDAÇÃO')
 
       alert('FORMULARIO SUBMETIDO COM SUCESSO')
+    }
+
+    function verificaEmail() {
+      let verificaEmail = UsuariosService.getUsuarios().some(usuario => $scope.usuario.email === usuario.email)
+
+      if(verificaEmail) $scope.formCadastro.$setValidity("emailRegistrado", false);
+      else $scope.formCadastro.$setValidity("emailRegistrado", true);
     }
 
   })

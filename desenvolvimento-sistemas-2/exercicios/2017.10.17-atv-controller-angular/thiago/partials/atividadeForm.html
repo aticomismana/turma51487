@@ -25,13 +25,16 @@
           </div>
         </div>
         <div class="input-field">
-          <input id="email" name="email" type="email" class="validate" ng-model="usuario.email" ng-required="true">
+          <input id="email" name="email" type="email" class="validate" ng-model="usuario.email" ng-required="true" ng-change="verificaEmail()">
           <label for="email">E-mail</label>
           <div ng-show="!usuario.email && formCadastro.email.$touched && !formCadastro.email.$error.email">
             <p class="red-text">Campo obrigatório</p>
           </div>
           <div ng-show="formCadastro.$error.email.length && formCadastro.email.$touched ">
             <p class="red-text">Formato de email incorreto</p>
+          </div>
+          <div ng-show="formCadastro.$error.emailRegistrado">
+            <p class="red-text">Email já cadastro</p>
           </div>
         </div>
         <div class="row">
@@ -96,7 +99,7 @@
               <div ng-show="!usuario.anoNascimento && formCadastro.anoNascimento.$touched">
                 <p class="red-text">Campo obrigatório</p>
               </div>
-              <div ng-show="anoNascimentoInvalid && formCadastro.anoNascimento.$touched">
+              <div ng-show="formCadastro.$error.anoNascimento && formCadastro.anoNascimento.$touched">
                 <p class="red-text">Ano inválido</p>
               </div>
             </div>
@@ -109,7 +112,7 @@
           <option value="meminino">Feminino</option>
         </select>
         <div class="input-field">
-          <input id="celular" type="text" class="validate" ng-model="usuario.celular" ng-required="true">
+          <input id="celular" type="text" ng-model="usuario.celular" ng-required="true">
           <label for="celular">Celular</label>
         </div>
         <div class="input-field">
