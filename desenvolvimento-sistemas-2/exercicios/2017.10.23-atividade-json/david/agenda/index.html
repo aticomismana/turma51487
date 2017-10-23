@@ -91,82 +91,11 @@
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Nome</label>
-        <div class="form-row">
-          <div class="col">
-            <input type="text" class="form-control " placeholder="Nome" ng-model="nomeModel">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control " placeholder="Sobrenome" ng-model="sobrenomeModel">
-          </div>
-        </div>
+        <input type="text" class="form-control" placeholder="Nome" ng-model="nomeModel">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Escolha seu e-mail de usuario</label>
-        <input type="text" class="form-control" placeholder="exemple@email.com" ng-model="emailModel">
-      </div>
-      <div class="form-row">
-        <div class="col">
-          <label for="exampleInputPassword1">Crie uma senha</label>
-          <input type="password" class="form-control" placeholder="Password" ng-model="senhaModel">
-        </div>
-        <div class="col">
-          <label for="exampleInputPassword1">Confirme sua senha</label>
-          <input type="password" class="form-control" placeholder="Password" ng-model="confirmaModel">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Data de nascimento</label>
-          <div class="form-row">
-            <div class="col">
-              <input type="text" maxlength="2" class="form-control " placeholder="Dia" ng-model="diaModel">
-            </div>
-            <div class="col">
-              <select class="custom-select" ng-model="mesModel">
-                <option selected>Mês</option>
-                <option value="1">Janeiro</option>
-                <option value="2">Fevereiro</option>
-                <option value="3">Março</option>
-                <option value="4">Abril</option>
-                <option value="5">Maio</option>
-                <option value="6">Junho</option>
-                <option value="7">Julho</option>
-                <option value="8">Agosto</option>
-                <option value="9">Setembro</option>
-                <option value="10">Outubro</option>
-                <option value="11">Novembro</option>
-                <option value="12">Dezembro</option>
-              </select>
-            </div>
-            <div class="col">
-              <input type="text" maxlength="4" class="form-control " placeholder="Ano" ng-model="anoModel">
-            </div>
-          </div>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Sexo</label>
-        <select class="custom-select" ng-model"sexoModel">
-          <option selected>Sou do sexo</option>
-          <option value="1">Masculino</option>
-          <option value="2">Feminino</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="col">
-          <label for="exampleInputPassword1">Celular</label>
-          <input type="text" maxlength="9" class="form-control" placeholder="Telefone" ng-model="celModel">
-        </div>
-        <div class="col">
-          <label for="exampleInputPassword1">Seu endereço de e-mail atual</label>
-          <input type="text" class="form-control" ng-model="vinculoModel">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Local</label>
-        <select class="custom-select" ng-model"localModel">
-          <option selected>Brasil</option>
-          <option value="1">Bra</option>
-          <option value="2">sil</option>
-        </select>
+        <label for="exampleInputPassword1">Telefone</label>
+        <input type="text" class="form-control" placeholder="Telefone" ng-model="telModel">
       </div>
       <button type="submit" class="btn btn-primary" ng-click="addContatos(nomeModel, telModel)">Cadastrar</button>
     </form>
@@ -175,26 +104,15 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Email</th>
-          <th>Senha</th>
-          <th>Data</th>
-          <th>Sexo</th>
-          <th>Celular</th>
-          <th>Contato</th>
-          <th>local</th>
+          <th>Telefone</th>
+          <th>Idade</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="contato in contatos">
-          <td>{{contato.nome}} {{contato.sobrenome}}</td>
-          <td>{{contato.email}}</td>
-          <td>{{contato.senha}}</td>
-          <td>{{contato.dia}} de {{contato.mes}} de {{contato.ano}}</td>
-          <td>{{contato.sexo}}</td>
-          <td>{{contato.celular}}</td>
-          <td>{{contato.emailExterno}}</td>
-          <td>{{contato.local}}</td>
-
+          <td>{{contato.nome}}</td>
+          <td>{{contato.tel}}</td>
+          <td>{{contato.idade}}</td>
         </tr>
       </tbody>
     </table>
@@ -214,30 +132,7 @@
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script>
-      var agenda=angular.module('agenda', []);
-
-      agenda.controller('agendaController', function($scope){
-
-        $scope.contatos = [{nome: "atico", sobrenome: "ferreira", email: "atico@email.com", senha: "123", dia: "20", mes: "1", ano: "2012", sexo: "1", celular: "123456789", emailExterno: "atico@email2.com", local: "Bra"}];
-
-        $scope.addContatos = function(nome, sobrenome, email, senha, confirmaSenha, dia, mes, ano, sexo, celular, emailExterno, local){
-          $scope.contatos.push({nome: nome, sobrenome: sobrenome, email: email, senha: senha, dia: dia, mes: mes, ano: ano, sexo: sexo, celular: celular, emailExterno: emailExterno, local: local});
-          $scope.nomeModel = "";
-          $scope.sobrenomeModel = "";
-          $scope.emailModel = "";
-          $scope.senhaModel = "";
-          $scope.confirmaModel = "";
-          $scope.diaModel = "";
-          $scope.mesModel = "";
-          $scope.anoModel = "";
-          $scope.sexoModel = "";
-          $scope.celularModel = "";
-          $scope.vinculoModel = "";
-          $scope.telModel = "";
-        }
-      });
-    </script>
   </body>
 </html>

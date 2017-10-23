@@ -1,0 +1,8 @@
+{
+	"contatos": 
+	[
+		{"nome": "atico", "tel": "123456", "idade": 17},
+        {"nome": "david", "tel": "321421421", "idade": 15},
+        {"nome": "arruda", "tel": "88218828", "idade": 22}
+    ]
+};
