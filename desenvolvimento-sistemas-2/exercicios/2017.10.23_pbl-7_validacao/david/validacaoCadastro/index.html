@@ -91,11 +91,82 @@
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Nome</label>
-        <input type="text" class="form-control" placeholder="Nome" ng-model="nomeModel">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control " placeholder="Nome" ng-model="nomeModel">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control " placeholder="Sobrenome" ng-model="sobrenomeModel">
+          </div>
+        </div>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Telefone</label>
-        <input type="text" class="form-control" placeholder="Telefone" ng-model="telModel">
+        <label for="exampleInputPassword1">Escolha seu e-mail de usuario</label>
+        <input type="text" class="form-control" placeholder="exemple@email.com" ng-model="telModel">
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="exampleInputPassword1">Crie uma senha</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="col">
+          <label for="exampleInputPassword1">Confirme sua senha</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Data de nascimento</label>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" maxlength="2" class="form-control " placeholder="Dia" ng-model="nomeModel">
+            </div>
+            <div class="col">
+              <select class="custom-select">
+                <option selected>Mês</option>
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+              </select>
+            </div>
+            <div class="col">
+              <input type="text" maxlength="4" class="form-control " placeholder="Ano" ng-model="sobrenomeModel">
+            </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Sexo</label>
+        <select class="custom-select">
+          <option selected>Sou do sexo</option>
+          <option value="1">Masculino</option>
+          <option value="2">Feminino</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="exampleInputPassword1">Celular</label>
+          <input type="text" maxlength="9" class="form-control" placeholder="Telefone" ng-model="telModel">
+        </div>
+        <div class="col">
+          <label for="exampleInputPassword1">Seu endereço de e-mail atual</label>
+          <input type="text" class="form-control" ng-model="telModel">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Local</label>
+        <select class="custom-select">
+          <option selected>Brasil</option>
+          <option value="1">Bra</option>
+          <option value="2">sil</option>
+        </select>
       </div>
       <button type="submit" class="btn btn-primary" ng-click="addContatos(nomeModel, telModel)">Cadastrar</button>
     </form>
