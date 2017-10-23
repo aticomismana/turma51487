@@ -11,6 +11,45 @@ const myApp = angular.module('todoApp', ['ui.router'])
       }
     };
   })
+  .service('UsuariosService', function() {
+    let usuarios = [{
+        email: 'thiago@gmail.com'
+      },
+      {
+        email: 'teste@gmail.com'
+      },
+      {
+        email: 'vitor@gmail.com'
+      },
+      {
+        email: 'joao@gmail.com'
+      },
+      {
+        email: 'invictor@gmail.com'
+      },
+      {
+        email: 'alguem@gmail.com'
+      },
+      {
+        email: 'kevin@gmail.com'
+      },
+      {
+        email: 'cesar@gmail.com'
+      },
+      {
+        email: 'leo@gmail.com'
+      }
+    ]
+
+    return {
+      getUsuarios: function () {
+          return usuarios;
+      },
+      setUsuarios: function(valor) {
+          usuarios = valor;
+      }
+    };
+  })
   .controller('TodoFormController', function($scope, $location, TodoListService) {
     let atividades = TodoListService.getAtividades()
     $scope.resetar = resetar
@@ -44,4 +83,37 @@ const myApp = angular.module('todoApp', ['ui.router'])
       $scope.atividades.splice(indice, 1)
       TodoListService.setAtividades($scope.atividades)
     }
+  })
+  .controller('AtividadeFormController', function($scope, $timeout, $http) {
+    const select = document.getElementById("paises")
+    const data = new Date();
+    let option
+    let anoAtual = data.getFullYear()
+    $scope.usuario = {}
+    $scope.submeterFormulario = submeterFormulario
+
+    $scope.$watch('usuario.anoNascimento', function() {
+      if ($scope.usuario.anoNascimento >= anoAtual - 3) {
+        $scope.formCadastro.$setValidity("anoNascimento", false);
+        $scope.anoNascimentoInvalid = true
+      }
+      else $scope.anoNascimentoInvalid = false
+    });
+
+    $('select').material_select();
+
+    $http.get('paises.json').then(function(data){
+      for (var i = 0; i < data.data.length; i++) {
+        option = new Option(data.data[i].nome_pais, data.data[i].nome_pais);
+        select.add(option);
+      }
+      $('#paises').material_select();
+    });
+
+    function submeterFormulario() {
+      if($scope.formCadastro.$invalid) return alert('FORMULARIO CONTEM ERRO DE VALIDAÇÃO')
+
+      alert('FORMULARIO SUBMETIDO COM SUCESSO')
+    }
+
   })

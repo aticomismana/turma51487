@@ -17,4 +17,9 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "partials/todoForm.html",
       controller: "TodoFormController"
     })
+    .state('atividadeForm', {
+      url: "/atividadeForm",
+      templateUrl: "partials/atividadeForm.html",
+      controller: "AtividadeFormController"
+    })
 });
