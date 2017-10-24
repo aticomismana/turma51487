@@ -1,0 +1,50 @@
+body {
+  width:100%;
+  background-color: #ebf0fa;
+  overflow-x: hidden;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+.container {
+  padding-top: 12%;
+}
+
+.navbar {
+  position: relative;
+  font-size: 22px;
+}
+
+
+
+.letter {
+  cursor: pointer;
+  width: 180px;
+  max-height: 140px
+}
+
+.menu-button {
+  display: block;
+  background-color: #99c2ff;
+  text-decoration: none;
+  padding: 10px 0 10px 0;
+  font-size: 19px
+}
+
+@media screen and (min-width: 1020px) {
+  .navbar {
+    position: relative !important;
+  }
+}
