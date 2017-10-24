@@ -1,0 +1,56 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <h1 class="header center orange-text">Cadastro de atividade</h1>
+
+    <div class="row">
+      <form class="col s12" name="formTodo">
+        <div class="input-field">
+          <input id="titulo" type="text" class="validate" ng-model="todo.titulo" ng-required="true">
+          <label for="titulo">Titulo</label>
+        </div>
+        <div class="row">
+          <div class="input-field col s10">
+            <input id="descricao" type="text" class="validate" ng-model="todo.descricao" ng-required="true">
+            <label for="descricao">Descrição</label>
+          </div>
+          <div class="input-field col s2">
+            <input id="horario" type="text" class="timepicker" ng-model="todo.horario" ng-required="true">
+            <label for="horario">Horário</label>
+          </div>
+        </div>
+        <p class="range-field">
+          <label for="dificuldade">Grau de dificuldade</label>
+           <input type="range" min="0" max="100" name="dificuldade" ng-model="todo.dificuldade"/>
+         </p>
+        <div class="row">
+          <button class="btn waves-effect waves-light pulse blue darken-1" type="button" ng-click="adicionar()">Adicionar
+            <i class="material-icons right">send</i>
+          </button>
+          <button class="btn waves-effect waves-light red darken-1" type="button" ng-click="resetar()">Resetar
+            <i class="material-icons right">delete</i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <br>
+    <h4 class="header center grey-text">Pré visualização</h4>
+
+    <div class="divider"></div>
+    <br>
+    <div class="push-5">
+      <div class="row">
+         <div class="col s12 m6">
+           <div class="card blue lighten-2">
+             <div class="card-content white-text">
+               <span class="card-title">{{todo.titulo || "Título"}}</span>
+               <p>{{todo.atividade || "Descrição da atividade"}}</p>
+             </div>
+             <div class="card-action">
+               <a href="">{{todo.horario || "Não informado"}}</a>
+             </div>
+           </div>
+         </div>
+       </div>
+    </div>
+  </div>
+</div>
