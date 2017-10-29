@@ -37,6 +37,7 @@ var melhorTentativa=0;
 window.onload = novoJogo;
 
 function novoJogo() {
+    cartaAssociada = [];
     inicializaCartas();
     atualmenteAberta = -1;
     podeAbrir = true;
