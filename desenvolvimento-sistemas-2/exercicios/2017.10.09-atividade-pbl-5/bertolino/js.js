@@ -86,18 +86,15 @@ function inicializaDados(){
             "px;max-height:"+alturaImagens+"px;width:auto;height:auto;");
             para.innerHTML = '&emsp;';
             tds[j].onclick = function(){clickVer(this)};
-            //tds[j].setAttribute('style',"background-color:#666666;");
         }
     }
 };
 
 function clickVer(carta){
-    console.log("clicado");
     if(podeAbrir){
         mostraCarta(carta);
         if(atualmenteAberta == -1){
             atualmenteAberta = posicaoElemento(carta);
-            //mostraCarta(carta);
             return;
         }
         if(atualmenteAberta == posicaoElemento(carta))
@@ -142,8 +139,8 @@ function escondeCarta(carta1,carta2){
         var para2 = carta2.getElementsByTagName('span')[0];
         img1.setAttribute('src',pa);
         img2.setAttribute('src',pa);
-        para1.innerHTML = "-";
-        para2.innerHTML = "-";
+        para1.innerHTML = "&emsp;";
+        para2.innerHTML = "&emsp;";
     }, 1000);
 }
 

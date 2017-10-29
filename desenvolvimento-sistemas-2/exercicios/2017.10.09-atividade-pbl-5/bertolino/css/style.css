@@ -71,6 +71,10 @@ h2 a {
       padding: 0 0 8em 0;
 }
 
+.container thead tr th h1 {
+    text-align: center;
+}
+
 .container thead tr th:nth-child(3):hover {
     cursor: pointer;
     background-color: #4DC3FA;
@@ -103,7 +107,6 @@ h2 a {
 .container tr {
     height: 20%;
 }
-
 
 /* Background-color of the odd rows */
 .container tr:nth-child(odd) {
