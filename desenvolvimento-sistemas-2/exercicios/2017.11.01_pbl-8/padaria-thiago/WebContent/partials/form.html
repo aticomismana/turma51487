@@ -1,0 +1,41 @@
+<form name="formProduto" ng-submit="submitForm()">
+  <div class="form-group">
+    <label for="sel1">Tipo de produto</label>
+    <select class="form-control" ng-model="tipo_produto">
+      <option value="1">Frios</option>
+      <option value="2">Doce</option>
+      <option value="3">Pão</option>
+    </select>
+ </div>
+ <div class="form-group" ng-if="tipo_produto == 2">
+   <label for="tipo_doce">Tipo de doce:</label>
+   <input type="text" class="form-control" name="tipo_doce" ng-mode="produto.tipo_doce">
+ </div>
+ <div class="form-group" ng-if="tipo_produto == 3">
+   <label for="sabor">Sabor:</label>
+   <input type="text" class="form-control" name="sabor" ng-mode="produto.sabor">
+ </div>
+ <div class="form-group">
+   <label for="nome">Nome do Produto:</label>
+   <input type="text" class="form-control" name="nome" ng-mode="produto.nome">
+ </div>
+ <div class="row">
+   <div class="col-sm-6">
+     <div class="form-group">
+       <label for="preco">Preço:</label>
+       <input type="text" class="form-control" name="preco" ng-mode="produto.preco">
+     </div>
+   </div>
+   <div class="col-sm-6">
+     <div class="form-group">
+       <label for="validade">Validade:</label>
+       <input type="date" class="form-control" name="validade" ng-mode="produto.validade">
+     </div>
+   </div>
+ </div>
+ <div class="form-group">
+   <label for="especificacao">Especificação:</label>
+   <textarea class="form-control" rows="5" name="especificacao" ng-mode="produto.especificacao"></textarea>
+ </div>
+ <button type="submit" class="btn btn-default">Enviar</button>
+</form>
