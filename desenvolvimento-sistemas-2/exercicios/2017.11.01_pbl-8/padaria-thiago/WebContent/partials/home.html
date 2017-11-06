@@ -1,0 +1,16 @@
+<table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Validade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="produto in produtos">
+        <td>{{produto.nome}}</td>
+        <td>{{produto.preco}}</td>
+        <td>{{produto.validade}}</td>
+      </tr>
+    </tbody>
+  </table>

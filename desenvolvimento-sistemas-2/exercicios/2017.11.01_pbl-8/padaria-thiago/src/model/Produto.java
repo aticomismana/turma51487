@@ -11,7 +11,7 @@ public abstract class Produto implements Serializable {
 	private String nome;
 	private Double preco;
 	private String especificacao;
-	private Date validade;
+	private String validade;
 	
 	
 	public String getNome() {
@@ -38,11 +38,11 @@ public abstract class Produto implements Serializable {
 		this.especificacao = especificacao;
 	}
 	
-	public Date getValidade() {
+	public String getValidade() {
 		return validade;
 	}
 	
-	public void setValidade(Date validade) {
+	public void setValidade(String validade) {
 		this.validade = validade;
 	}
 	

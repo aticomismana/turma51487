@@ -11,3 +11,10 @@ let myApp = angular.module('myApp', ['ui.router'])
 
     }
   })
+  .controller('listaProdutosController', function($scope, $http) {
+
+    $http.get('http://localhost:8080/padaria-thiago/rest/produtos').then(
+	    (data) => $scope.produtos = response.data,
+	    (erro) => console.log(erro)
+	  );
+  })

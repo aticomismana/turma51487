@@ -1,5 +1,5 @@
 package model;
 
-public class Frios {
+public class Frios extends Produto {
 
 }

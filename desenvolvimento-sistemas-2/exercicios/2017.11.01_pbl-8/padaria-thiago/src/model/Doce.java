@@ -8,7 +8,7 @@ public class Doce extends Produto implements Serializable  {
 
 	private String tipo_doce;
 	
-	public Doce(String tipo_doce, String nome, Double preco, String especificacao, Date validade) {
+	public Doce(String tipo_doce, String nome, Double preco, String especificacao, String validade) {
 		this.setEspecificacao(especificacao);
 		this.setNome(nome);
 		this.setPreco(preco);

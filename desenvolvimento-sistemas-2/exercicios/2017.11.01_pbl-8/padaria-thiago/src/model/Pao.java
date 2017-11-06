@@ -7,12 +7,16 @@ public class Pao extends Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String sabor;
 	
-	public Pao(String sabor, String nome, Double preco, String especificacao, Date validade) {
+	public Pao(String sabor, String nome, Double preco, String especificacao, String validade) {
 		this.setEspecificacao(especificacao);
 		this.setNome(nome);
 		this.setPreco(preco);
 		this.setValidade(validade);
 		this.setSabor(sabor);
+	}
+	
+	public Pao() {
+		
 	}
 
 	public String getSabor() {

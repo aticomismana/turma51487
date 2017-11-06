@@ -18,14 +18,18 @@ import model.*;
 public class facadeProduto {
 	static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	
+	static {
+		produtos.add(new Pao("Queijo", "Pão de queijo", 10.00, "teste", "27-11-1999"));
+	}
+	
 	@GET
 	public ArrayList<Produto> executaGet(){
 		return produtos;
 	}
 	
 	@POST 
-	public void executaPost(Object produto) {
+	public void executaPost(Produto produto) {
 		System.out.println(produto.toString());
-
+		produtos.add(produto);
 	}
 }

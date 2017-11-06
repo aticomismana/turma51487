@@ -5,7 +5,12 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('index', {
       url: "/",
-      templateUrl: "partials/home.html"
+      template: "Inicio"
+    })
+    .state('listaProdutos', {
+      url: "/listaProdutos",
+      templateUrl: "partials/home.html",
+      controller: 'listaProdutosController'
     })
     .state('form', {
       url: "/form",
