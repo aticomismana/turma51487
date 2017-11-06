@@ -10,7 +10,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
     .state('listaProdutos', {
       url: "/listaProdutos",
       templateUrl: "partials/home.html",
-      controller: 'listaProdutosController'
+      controller: 'pedidosController'
     })
     .state('form', {
       url: "/form",
