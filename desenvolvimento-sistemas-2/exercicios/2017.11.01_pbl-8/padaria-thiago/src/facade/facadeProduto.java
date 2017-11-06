@@ -18,18 +18,28 @@ import model.*;
 public class facadeProduto {
 	static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	
-	static {
-		produtos.add(new Pao("Queijo", "Pão de queijo", 10.00, "teste", "27-11-1999"));
-	}
-	
 	@GET
 	public ArrayList<Produto> executaGet(){
 		return produtos;
 	}
 	
 	@POST 
-	public void executaPost(Produto produto) {
+	public String postMessage(Produto produto) throws Exception{
 		System.out.println(produto.toString());
-		produtos.add(produto);
-	}
+		produto.id = produtos.size();
+		if(produto.tipo_produto.equals("pao")) {
+			Pao pao = (Pao) produto;
+			produtos.add(pao);
+		}
+		else if(produto.tipo_produto.equals("doce")) {
+			Doce doce = (Doce) produto;
+			produtos.add(doce);
+		}
+		else if(produto.tipo_produto.equals("frios")) {
+			Frios frios = (Frios) produto;
+			produtos.add(frios);
+		}
+
+        return "ok";
+    }
 }

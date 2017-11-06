@@ -6,13 +6,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 
-public abstract class Produto implements Serializable {
+public class Produto implements Serializable {
+	public int id;
 	private static final long serialVersionUID = 1L;
 	private String nome;
 	private Double preco;
 	private String especificacao;
 	private String validade;
-	
+	public String tipo_produto;
 	
 	public String getNome() {
 		return nome;
