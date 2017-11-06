@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="produto">
+<head>
+	<title>Index</title>
+	<meta charset="utf-8">
+
+ 	<script src="js/angular.min.js"></script>
+ 	<script src="controller/produto.js"></script>
+</head>
+<body ng-controller="produto">
+
+	<table class='table'>
+	<thead>
+	  <tr>
+	    <th>preco</th>
+	    <th>validade</th>
+	    <th>especificacao</th>
+	    <th>tempoMinEntrega</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr ng-repeat="produto in produtos">
+	    <th>{{produto.preco}}</th>
+	    <th>{{produto.validade}}</th>
+	    <th>{{produto.especificacao}}</th>
+	    <th>{{produto.tempoMinEntrega}}</th>
+	  </tr>
+	</tbody>
+	</table>
+
+</body>
+</html>

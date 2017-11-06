@@ -1,6 +1,12 @@
 package model;
 
-public class Produto {
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public abstract class Produto implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Double preco;
 	private Double validade;
 	private String especificacao;
@@ -11,6 +17,10 @@ public class Produto {
 		this.validade = validade;
 		this.especificacao = especificacao;
 		this.tempoMinEntrega = tempoMinEntrega;
+	}
+	
+	public Produto() {
+		
 	}
 	
 	public Double getPreco() {
