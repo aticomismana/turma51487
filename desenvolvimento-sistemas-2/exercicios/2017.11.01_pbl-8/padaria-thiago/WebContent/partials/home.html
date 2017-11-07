@@ -3,29 +3,36 @@
 		<div class="col-sm-8">
 			  <div class="form-group">
 			    <label for="sel1">Tipo de produto</label>
-			    <select class="form-control" ng-repeat="produto in produtos">
-			      	<option value="{{produto.id}}">{{produto.nome}}</option>
+			    <select class="form-control"  ng-model="produtoSelect">
+			      <option ng-repeat="produto in produtos" value="{{produto}}">{{produto.nome}}</option>
 			    </select>
 			 </div>
 		</div>
-		<div class="col-sm-4">
-			<button type="button" ng-click="">Adicionar</button>
+		<div class="col-sm-4" style="margin-top:25px">
+			<button type="button" ng-click="addTable()" class="btn btn-primary">Adicionar</button>
 		</div>
 	</div>
 </div>
 <table class="table table-hover table-striped">
     <thead>
       <tr>
-        <th>Nome</th>
-        <th>Preço</th>
-        <th>Validade</th>
+        <th>Nome Produto</th>
+        <th>Preço Produto</th>
+        <th>Data realização pedido</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="pedido in pedidos">
-        <td>{{produto.nome}}</td>
-        <td>{{produto.preco}}</td>
-        <td>{{produto.validade}}</td>
+        <td>{{pedido.produto.nome}}</td>
+        <td>{{pedido.produto.preco}}</td>
+        <td>{{pedido.dataPedido}}</td>
       </tr>
     </tbody>
+    <tfoot>
+    	<tr>
+	      <td></td>
+	      <td></td>
+	      <td><b>total: </b>{{total}}</td>
+	    </tr>
+    </tfoot>
   </table>

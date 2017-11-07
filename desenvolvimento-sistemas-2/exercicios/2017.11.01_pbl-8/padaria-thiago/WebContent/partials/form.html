@@ -7,13 +7,13 @@
       <option value="pao">Pão</option>
     </select>
  </div>
- <div class="form-group" ng-if="produto.tipo_produto == 'pao'">
-   <label for="tipo_doce">Tipo de doce:</label>
-   <input type="text" class="form-control" name="tipo_doce" ng-model="produto.tipo_doce">
- </div>
  <div class="form-group" ng-if="produto.tipo_produto == 'doce'">
+   <label for="tipo_doce">Tipo de doce:</label>
+   <input type="text" class="form-control" name="tipo_doce" ng-model="tipo_doce">
+ </div>
+ <div class="form-group" ng-if="produto.tipo_produto == 'pao'">
    <label for="sabor">Sabor:</label>
-   <input type="text" class="form-control" name="sabor" ng-model="produto.sabor">
+   <input type="text" class="form-control" name="sabor" ng-model="sabor">
  </div>
  <div class="form-group">
    <label for="nome">Nome do Produto:</label>
