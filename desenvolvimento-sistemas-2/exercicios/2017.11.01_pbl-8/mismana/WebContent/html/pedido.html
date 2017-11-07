@@ -5,16 +5,50 @@
 	<meta charset="utf-8">
 
  	<script src="../js/angular.min.js"></script>
+ 	<script src="../controller/pedidoController.js"></script>
  	<script src="../controller/pedido.js"></script>
- 	<script src="../controller/produto.js"></script>
+<!--  	<script src="../controller/produto.js"></script> -->
 </head>
-<body>
+<body ng-controller="pedido">
 
-	<form ng-controller="produto">
-		<select ng-repeat="produto in produtos">
-			<option>{{produto.especificacao}}</option>
-		</select>
-		<input type="number" name="qtdPedido" placeholder="quantidade">
+	<h1>Cadastro de Pedido</h1>
+	<form>
+		<p>
+			<label>Produto</label>
+			<select ng-init="buscarProdutos()" ng-model="produtoEspecificacao">
+				<option ng-repeat="produto in produtos">{{produto.especificacao}}</option>
+			</select>
+			<label>Quantidade</label>
+			<input type="number" ng-model="quantidade" name="qtdPedido" placeholder="quantidade">
+		</p>
+		<p>
+			<button ng-click="adicionarNovoItem(produtoEspecificacao, quantidade)" >Incluir Produto</button>
+		</p>
 	</form>
+
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Especificação</th>
+					<th>Quantidade</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in itensPedido">
+					<td>{{item.especificacao}}</td>
+					<td>{{item.qtd}}</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+
+
+	<p>
+		<button ng-click="guardarPedido()">Salvar pedido</button>
+		<button ng-click="cancelarPedido()">Cancelar pedido</button>
+		<button ng-click="criarNovoPedido()">Criar novo pedido</button>	
+	</p>
+
 </body>
 </html>
