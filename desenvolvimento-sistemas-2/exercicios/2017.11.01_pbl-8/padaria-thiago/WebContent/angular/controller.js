@@ -33,11 +33,15 @@ let myApp = angular.module('myApp', ['ui.router'])
     }
 
     function addTable () {
-      const produto = $scope.produtoSelect
+      const pedido = {
+        produto:  JSON.parse($scope.produtoSelect),
+        quantidade: $scope.quantidade
+      }
+      console.log(pedido);
       $http({
 	        url: 'http://localhost:8080/padaria-thiago/rest/pedidos',
 	        method: "POST",
-	        data: produto,
+	        data: pedido,
 	    })
 	    .then(function(response) {
 	    	getPedidos()
@@ -51,7 +55,7 @@ let myApp = angular.module('myApp', ['ui.router'])
       $http.get('http://localhost:8080/padaria-thiago/rest/pedidos').then(
   	    (response) => {
           $scope.pedidos = response.data
-          $scope.pedidos.forEach(pedido => ($scope.total += pedido.produto.preco))
+          $scope.pedidos.forEach(pedido => ($scope.total += pedido.produto.preco * pedido.quantidade))
         },
   	    (erro) => console.log(erro)
   	  );

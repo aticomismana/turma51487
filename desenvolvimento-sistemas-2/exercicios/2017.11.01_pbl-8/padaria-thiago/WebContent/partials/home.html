@@ -1,14 +1,20 @@
 <div class="row">
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-6">
 			  <div class="form-group">
-			    <label for="sel1">Tipo de produto</label>
-			    <select class="form-control"  ng-model="produtoSelect">
+			    <label for="produto">Tipo de produto</label>
+			    <select class="form-control" name="produto" ng-model="produtoSelect">
 			      <option ng-repeat="produto in produtos" value="{{produto}}">{{produto.nome}}</option>
 			    </select>
 			 </div>
 		</div>
-		<div class="col-sm-4" style="margin-top:25px">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="quantidade">Quantidade</label>
+				<input type="text" name="quantidade" ng-model="quantidade" class="form-control">
+			</div>
+		</div>
+		<div class="col-sm-2" style="margin-top:25px">
 			<button type="button" ng-click="addTable()" class="btn btn-primary">Adicionar</button>
 		</div>
 	</div>
@@ -17,6 +23,7 @@
     <thead>
       <tr>
         <th>Nome Produto</th>
+				<th>Quantidade</th>
         <th>Preço Produto</th>
         <th>Data realização pedido</th>
       </tr>
@@ -24,7 +31,8 @@
     <tbody>
       <tr ng-repeat="pedido in pedidos">
         <td>{{pedido.produto.nome}}</td>
-        <td>{{pedido.produto.preco}}</td>
+        <td>{{pedido.quantidade}}</td>
+        <td>{{pedido.produto.preco.toFixed(2)}}</td>
         <td>{{pedido.dataPedido}}</td>
       </tr>
     </tbody>
@@ -32,7 +40,8 @@
     	<tr>
 	      <td></td>
 	      <td></td>
-	      <td><b>total: </b>{{total}}</td>
+	      <td></td>
+	      <td><b>total: </b>{{total.toFixed(2)}}</td>
 	    </tr>
     </tfoot>
   </table>

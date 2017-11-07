@@ -1,6 +1,7 @@
 package facade;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -24,10 +25,8 @@ public class facadePedido {
 	}
 	
 	@POST 
-	public String postMessage(Produto produto) throws Exception{
-		Pedido pedido = new Pedido();
-		pedido.setProduto(produto);
-		pedido.setDataPedido("06/11/2017");
+	public String postMessage(Pedido pedido) throws Exception{
+		pedido.setDataPedido(new Date().toString());
 
 		pedidos.add(pedido);
 
