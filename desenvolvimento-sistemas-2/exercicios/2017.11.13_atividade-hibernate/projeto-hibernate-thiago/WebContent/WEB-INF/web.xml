@@ -3,10 +3,9 @@
   <display-name>projeto-hibernate-thiago</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet-mapping>
+  	<servlet-name>javax.ws.rs.core.Application</servlet-name>
+  	<url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
 </web-app>
