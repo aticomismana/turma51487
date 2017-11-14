@@ -13,7 +13,11 @@ public class PessoaDAO implements PessoaDAOInterf {
 	
 	@Override
 	public void inserePessoa(Pessoa pessoa) {
-		entityManager.persist(pessoa);
+		try {
+			entityManager.persist(pessoa);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	@Override

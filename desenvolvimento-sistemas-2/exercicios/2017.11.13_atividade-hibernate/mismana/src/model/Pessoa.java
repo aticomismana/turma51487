@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
 @Table(name="pessoa")
+@PersistenceContext(unitName="prjHibernateGeraTabela")
 public class Pessoa implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -25,7 +27,7 @@ public class Pessoa implements Serializable {
 	@Column(name="idade")
 	private int idade;
 	
-	public Pessoa(int id, String nome, int idade) {
+	public Pessoa(String nome, int idade) {
 		super();
 		this.id = id;
 		this.nome = nome;
